@@ -1,0 +1,2810 @@
+[
+  {
+    "title": "Estomac",
+    "sourceSection": "Anatomie — Admissibilité",
+    "id": "course-1",
+    "system": "Digestif / Hépato-pancréatique"
+  },
+  {
+    "title": "Le duodeno-pancreas",
+    "sourceSection": "Anatomie — Admissibilité",
+    "id": "course-2",
+    "system": "Digestif / Hépato-pancréatique"
+  },
+  {
+    "title": "Le foie",
+    "sourceSection": "Anatomie — Admissibilité",
+    "id": "course-3",
+    "system": "Digestif / Hépato-pancréatique"
+  },
+  {
+    "title": "Pédicule hépatique",
+    "sourceSection": "Anatomie — Admissibilité",
+    "id": "course-4",
+    "system": "Digestif / Hépato-pancréatique"
+  },
+  {
+    "title": "Les voies biliaires",
+    "sourceSection": "Anatomie — Admissibilité",
+    "id": "course-5",
+    "system": "Digestif / Hépato-pancréatique"
+  },
+  {
+    "title": "Le colon",
+    "sourceSection": "Anatomie — Admissibilité",
+    "id": "course-6",
+    "system": "Digestif / Hépato-pancréatique"
+  },
+  {
+    "title": "Rectum",
+    "sourceSection": "Anatomie — Admissibilité",
+    "id": "course-7",
+    "system": "Digestif / Hépato-pancréatique"
+  },
+  {
+    "title": "La paroi abdominale",
+    "sourceSection": "Anatomie — Admissibilité",
+    "id": "course-8",
+    "system": "Digestif / Hépato-pancréatique"
+  },
+  {
+    "title": "Le diaphragme",
+    "sourceSection": "Anatomie — Admissibilité",
+    "id": "course-9",
+    "system": "Digestif / Hépato-pancréatique"
+  },
+  {
+    "title": "Articulation du coude",
+    "sourceSection": "Anatomie — Admissibilité",
+    "id": "course-10",
+    "system": "Traumatologie / Orthopédie"
+  },
+  {
+    "title": "Articulation de l'épaule",
+    "sourceSection": "Anatomie — Admissibilité",
+    "id": "course-11",
+    "system": "Traumatologie / Orthopédie"
+  },
+  {
+    "title": "Articulation du poignet",
+    "sourceSection": "Anatomie — Admissibilité",
+    "id": "course-12",
+    "system": "Traumatologie / Orthopédie"
+  },
+  {
+    "title": "Les tendons de la main",
+    "sourceSection": "Anatomie — Admissibilité",
+    "id": "course-13",
+    "system": "Traumatologie / Orthopédie"
+  },
+  {
+    "title": "l'articulation de l'épaule",
+    "sourceSection": "Anatomie — Admissibilité",
+    "id": "course-14",
+    "system": "Traumatologie / Orthopédie"
+  },
+  {
+    "title": "Articulation du genou",
+    "sourceSection": "Anatomie — Admissibilité",
+    "id": "course-15",
+    "system": "Traumatologie / Orthopédie"
+  },
+  {
+    "title": "Articulation de la hanche",
+    "sourceSection": "Anatomie — Admissibilité",
+    "id": "course-16",
+    "system": "Traumatologie / Orthopédie"
+  },
+  {
+    "title": "Le creux axillaire",
+    "sourceSection": "Anatomie — Admissibilité",
+    "id": "course-17",
+    "system": "Anatomie générale / Régions"
+  },
+  {
+    "title": "Le creux poplité",
+    "sourceSection": "Anatomie — Admissibilité",
+    "id": "course-18",
+    "system": "Anatomie générale / Régions"
+  },
+  {
+    "title": "le pli du coude",
+    "sourceSection": "Anatomie — Admissibilité",
+    "id": "course-19",
+    "system": "Anatomie générale / Régions"
+  },
+  {
+    "title": "Le triangle de Scarpa",
+    "sourceSection": "Anatomie — Admissibilité",
+    "id": "course-20",
+    "system": "Anatomie générale / Régions"
+  },
+  {
+    "title": "l'artère axillaire",
+    "sourceSection": "Anatomie — Admissibilité",
+    "id": "course-21",
+    "system": "Traumatologie / Orthopédie"
+  },
+  {
+    "title": "L'artère brachiale ou humérale",
+    "sourceSection": "Anatomie — Admissibilité",
+    "id": "course-22",
+    "system": "Traumatologie / Orthopédie"
+  },
+  {
+    "title": "L'artère radiale",
+    "sourceSection": "Anatomie — Admissibilité",
+    "id": "course-23",
+    "system": "Traumatologie / Orthopédie"
+  },
+  {
+    "title": "L'artère ulnaire",
+    "sourceSection": "Anatomie — Admissibilité",
+    "id": "course-24",
+    "system": "Traumatologie / Orthopédie"
+  },
+  {
+    "title": "les artères de la main",
+    "sourceSection": "Anatomie — Admissibilité",
+    "id": "course-25",
+    "system": "Traumatologie / Orthopédie"
+  },
+  {
+    "title": "les lymphatiques du membre supérieur",
+    "sourceSection": "Anatomie — Admissibilité",
+    "id": "course-26",
+    "system": "Traumatologie / Orthopédie"
+  },
+  {
+    "title": "les veines du membre supérieur",
+    "sourceSection": "Anatomie — Admissibilité",
+    "id": "course-27",
+    "system": "Traumatologie / Orthopédie"
+  },
+  {
+    "title": "Le nerf axillaire",
+    "sourceSection": "Anatomie — Admissibilité",
+    "id": "course-28",
+    "system": "Traumatologie / Orthopédie"
+  },
+  {
+    "title": "Le nerf médian",
+    "sourceSection": "Anatomie — Admissibilité",
+    "id": "course-29",
+    "system": "Traumatologie / Orthopédie"
+  },
+  {
+    "title": "Le nerf musculo cutané",
+    "sourceSection": "Anatomie — Admissibilité",
+    "id": "course-30",
+    "system": "Traumatologie / Orthopédie"
+  },
+  {
+    "title": "Le nerf radial",
+    "sourceSection": "Anatomie — Admissibilité",
+    "id": "course-31",
+    "system": "Traumatologie / Orthopédie"
+  },
+  {
+    "title": "Le nerf ulnaire",
+    "sourceSection": "Anatomie — Admissibilité",
+    "id": "course-32",
+    "system": "Traumatologie / Orthopédie"
+  },
+  {
+    "title": "Plexus brachial",
+    "sourceSection": "Anatomie — Admissibilité",
+    "id": "course-33",
+    "system": "Traumatologie / Orthopédie"
+  },
+  {
+    "title": "artère fémorale",
+    "sourceSection": "Anatomie — Admissibilité",
+    "id": "course-34",
+    "system": "Traumatologie / Orthopédie"
+  },
+  {
+    "title": "Artère poplitée",
+    "sourceSection": "Anatomie — Admissibilité",
+    "id": "course-35",
+    "system": "Traumatologie / Orthopédie"
+  },
+  {
+    "title": "Artère tibiale antérieure",
+    "sourceSection": "Anatomie — Admissibilité",
+    "id": "course-36",
+    "system": "Traumatologie / Orthopédie"
+  },
+  {
+    "title": "Artère tibiale postérieure",
+    "sourceSection": "Anatomie — Admissibilité",
+    "id": "course-37",
+    "system": "Traumatologie / Orthopédie"
+  },
+  {
+    "title": "Les artéres du pied",
+    "sourceSection": "Anatomie — Admissibilité",
+    "id": "course-38",
+    "system": "Traumatologie / Orthopédie"
+  },
+  {
+    "title": "photos vascularisation MI",
+    "sourceSection": "Anatomie — Admissibilité",
+    "id": "course-39",
+    "system": "Traumatologie / Orthopédie"
+  },
+  {
+    "title": "Vascularisation lymphatique",
+    "sourceSection": "Anatomie — Admissibilité",
+    "id": "course-40",
+    "system": "Traumatologie / Orthopédie"
+  },
+  {
+    "title": "Vascularisation veineuse",
+    "sourceSection": "Anatomie — Admissibilité",
+    "id": "course-41",
+    "system": "Traumatologie / Orthopédie"
+  },
+  {
+    "title": "Le nerf fémoral",
+    "sourceSection": "Anatomie — Admissibilité",
+    "id": "course-42",
+    "system": "Traumatologie / Orthopédie"
+  },
+  {
+    "title": "Le nerf sciatique",
+    "sourceSection": "Anatomie — Admissibilité",
+    "id": "course-43",
+    "system": "Traumatologie / Orthopédie"
+  },
+  {
+    "title": "Plexus lombaire et plexus sacré",
+    "sourceSection": "Anatomie — Admissibilité",
+    "id": "course-44",
+    "system": "Traumatologie / Orthopédie"
+  },
+  {
+    "title": "la région carotidienne",
+    "sourceSection": "Anatomie — Admissibilité",
+    "id": "course-45",
+    "system": "ORL / Ophtalmologie"
+  },
+  {
+    "title": "L'oropharynx",
+    "sourceSection": "Anatomie — Admissibilité",
+    "id": "course-46",
+    "system": "ORL / Ophtalmologie"
+  },
+  {
+    "title": "Le nez",
+    "sourceSection": "Anatomie — Admissibilité",
+    "id": "course-47",
+    "system": "ORL / Ophtalmologie"
+  },
+  {
+    "title": "L'oreille",
+    "sourceSection": "Anatomie — Admissibilité",
+    "id": "course-48",
+    "system": "ORL / Ophtalmologie"
+  },
+  {
+    "title": "Le corps thyroide",
+    "sourceSection": "Anatomie — Admissibilité",
+    "id": "course-49",
+    "system": "ORL / Ophtalmologie"
+  },
+  {
+    "title": "Le nerf récurrent",
+    "sourceSection": "Anatomie — Admissibilité",
+    "id": "course-50",
+    "system": "ORL / Ophtalmologie"
+  },
+  {
+    "title": "Le larynx",
+    "sourceSection": "Anatomie — Admissibilité",
+    "id": "course-51",
+    "system": "ORL / Ophtalmologie"
+  },
+  {
+    "title": "Le cavum",
+    "sourceSection": "Anatomie — Admissibilité",
+    "id": "course-52",
+    "system": "ORL / Ophtalmologie"
+  },
+  {
+    "title": "L'oeil",
+    "sourceSection": "Anatomie — Admissibilité",
+    "id": "course-53",
+    "system": "ORL / Ophtalmologie"
+  },
+  {
+    "title": "Le nerf optique",
+    "sourceSection": "Anatomie — Admissibilité",
+    "id": "course-54",
+    "system": "ORL / Ophtalmologie"
+  },
+  {
+    "title": "Le sein",
+    "sourceSection": "Anatomie — Admissibilité",
+    "id": "course-55",
+    "system": "Gynécologie / Obstétrique"
+  },
+  {
+    "title": "Les trompes",
+    "sourceSection": "Anatomie — Admissibilité",
+    "id": "course-56",
+    "system": "Gynécologie / Obstétrique"
+  },
+  {
+    "title": "Ligament large",
+    "sourceSection": "Anatomie — Admissibilité",
+    "id": "course-57",
+    "system": "Gynécologie / Obstétrique"
+  },
+  {
+    "title": "L'ovaire",
+    "sourceSection": "Anatomie — Admissibilité",
+    "id": "course-58",
+    "system": "Gynécologie / Obstétrique"
+  },
+  {
+    "title": "utérus",
+    "sourceSection": "Anatomie — Admissibilité",
+    "id": "course-59",
+    "system": "Gynécologie / Obstétrique"
+  },
+  {
+    "title": "La loge rénale",
+    "sourceSection": "Anatomie — Admissibilité",
+    "id": "course-60",
+    "system": "Néphrologie / Urologie"
+  },
+  {
+    "title": "Le pédicule rénal",
+    "sourceSection": "Anatomie — Admissibilité",
+    "id": "course-61",
+    "system": "Néphrologie / Urologie"
+  },
+  {
+    "title": "La loge prostatique",
+    "sourceSection": "Anatomie — Admissibilité",
+    "id": "course-62",
+    "system": "Néphrologie / Urologie"
+  },
+  {
+    "title": "Le cerveau",
+    "sourceSection": "Anatomie — Admissibilité",
+    "id": "course-63",
+    "system": "Neurologie / Neurochirurgie"
+  },
+  {
+    "title": "Le polygone de Wilis (Hiba)",
+    "sourceSection": "Anatomie — Admissibilité",
+    "id": "course-64",
+    "system": "Neurologie / Neurochirurgie"
+  },
+  {
+    "title": "Le cervelet",
+    "sourceSection": "Anatomie — Admissibilité",
+    "id": "course-65",
+    "system": "Neurologie / Neurochirurgie"
+  },
+  {
+    "title": "La moelle épinière",
+    "sourceSection": "Anatomie — Admissibilité",
+    "id": "course-66",
+    "system": "Neurologie / Neurochirurgie"
+  },
+  {
+    "title": "Présentation1",
+    "sourceSection": "Anatomie — Admissibilité",
+    "id": "course-67",
+    "system": "Neurologie / Neurochirurgie"
+  },
+  {
+    "title": "Le coeur",
+    "sourceSection": "Anatomie — Admissibilité",
+    "id": "course-68",
+    "system": "Cardiovasculaire"
+  },
+  {
+    "title": "La vascularisation-innervation du coeur",
+    "sourceSection": "Anatomie — Admissibilité",
+    "id": "course-69",
+    "system": "Cardiovasculaire"
+  },
+  {
+    "title": "Le péricarde",
+    "sourceSection": "Anatomie — Admissibilité",
+    "id": "course-70",
+    "system": "Cardiovasculaire"
+  },
+  {
+    "title": "L'aorte thoracique",
+    "sourceSection": "Anatomie — Admissibilité",
+    "id": "course-71",
+    "system": "Cardiovasculaire"
+  },
+  {
+    "title": "L'aorte abdominale",
+    "sourceSection": "Anatomie — Admissibilité",
+    "id": "course-72",
+    "system": "Cardiovasculaire"
+  },
+  {
+    "title": "La veine cave inférieure",
+    "sourceSection": "Anatomie — Admissibilité",
+    "id": "course-73",
+    "system": "Cardiovasculaire"
+  },
+  {
+    "title": "La veine cave supérieure",
+    "sourceSection": "Anatomie — Admissibilité",
+    "id": "course-74",
+    "system": "Cardiovasculaire"
+  },
+  {
+    "title": "Les poumons",
+    "sourceSection": "Anatomie — Admissibilité",
+    "id": "course-75",
+    "system": "Pneumologie / Thorax"
+  },
+  {
+    "title": "Le pédicule pulmonaire",
+    "sourceSection": "Anatomie — Admissibilité",
+    "id": "course-76",
+    "system": "Pneumologie / Thorax"
+  },
+  {
+    "title": "La plèvre",
+    "sourceSection": "Anatomie — Admissibilité",
+    "id": "course-77",
+    "system": "Pneumologie / Thorax"
+  },
+  {
+    "title": "La trachée et les bronches",
+    "sourceSection": "Anatomie — Admissibilité",
+    "id": "course-78",
+    "system": "Pneumologie / Thorax"
+  },
+  {
+    "title": "Le canal thoracique",
+    "sourceSection": "Anatomie — Admissibilité",
+    "id": "course-79",
+    "system": "Pneumologie / Thorax"
+  },
+  {
+    "title": "L'oesophage thoracique",
+    "sourceSection": "Anatomie — Admissibilité",
+    "id": "course-80",
+    "system": "Pneumologie / Thorax"
+  },
+  {
+    "title": "La paroi thoracique",
+    "sourceSection": "Anatomie — Admissibilité",
+    "id": "course-81",
+    "system": "Pneumologie / Thorax"
+  },
+  {
+    "title": "La carcinogenèse",
+    "sourceSection": "Biologie — Admissibilité",
+    "id": "course-82",
+    "system": "Biologie générale / Physiologie"
+  },
+  {
+    "title": "Les marqueurs tumoraux",
+    "sourceSection": "Biologie — Admissibilité",
+    "id": "course-83",
+    "system": "Biologie générale / Physiologie"
+  },
+  {
+    "title": "La physiologie de la croissance osseuse",
+    "sourceSection": "Biologie — Admissibilité",
+    "id": "course-84",
+    "system": "Biologie générale / Physiologie"
+  },
+  {
+    "title": "Les antibiotiques",
+    "sourceSection": "Biologie — Admissibilité",
+    "id": "course-85",
+    "system": "Biologie générale / Physiologie"
+  },
+  {
+    "title": "Les rayonnement ionisants",
+    "sourceSection": "Biologie — Admissibilité",
+    "id": "course-86",
+    "system": "Biologie générale / Physiologie"
+  },
+  {
+    "title": "L'inflammation",
+    "sourceSection": "Biologie — Admissibilité",
+    "id": "course-87",
+    "system": "Biologie générale / Physiologie"
+  },
+  {
+    "title": "L'inflammation granulomateuse",
+    "sourceSection": "Biologie — Admissibilité",
+    "id": "course-88",
+    "system": "Biologie générale / Physiologie"
+  },
+  {
+    "title": "La fécondation",
+    "sourceSection": "Biologie — Admissibilité",
+    "id": "course-89",
+    "system": "Gynécologie / Obstétrique"
+  },
+  {
+    "title": "La ménopause",
+    "sourceSection": "Biologie — Admissibilité",
+    "id": "course-90",
+    "system": "Gynécologie / Obstétrique"
+  },
+  {
+    "title": "La spermatogénèse",
+    "sourceSection": "Biologie — Admissibilité",
+    "id": "course-91",
+    "system": "Gynécologie / Obstétrique"
+  },
+  {
+    "title": "Le cycle menstruel",
+    "sourceSection": "Biologie — Admissibilité",
+    "id": "course-92",
+    "system": "Gynécologie / Obstétrique"
+  },
+  {
+    "title": "L'ovogénèse",
+    "sourceSection": "Biologie — Admissibilité",
+    "id": "course-93",
+    "system": "Gynécologie / Obstétrique"
+  },
+  {
+    "title": "Le globule rouge",
+    "sourceSection": "Biologie — Admissibilité",
+    "id": "course-94",
+    "system": "Hématologie / Immunologie"
+  },
+  {
+    "title": "L'hémoglobine",
+    "sourceSection": "Biologie — Admissibilité",
+    "id": "course-95",
+    "system": "Hématologie / Immunologie"
+  },
+  {
+    "title": "Le métabolisme du Fer",
+    "sourceSection": "Biologie — Admissibilité",
+    "id": "course-96",
+    "system": "Hématologie / Immunologie"
+  },
+  {
+    "title": "Le métabolisme de la vitamine B12",
+    "sourceSection": "Biologie — Admissibilité",
+    "id": "course-97",
+    "system": "Hématologie / Immunologie"
+  },
+  {
+    "title": "L'hémolyse",
+    "sourceSection": "Biologie — Admissibilité",
+    "id": "course-98",
+    "system": "Hématologie / Immunologie"
+  },
+  {
+    "title": "Les plaquttes sanguines",
+    "sourceSection": "Biologie — Admissibilité",
+    "id": "course-99",
+    "system": "Hématologie / Immunologie"
+  },
+  {
+    "title": "L'hémostase physiologie et exploration",
+    "sourceSection": "Biologie — Admissibilité",
+    "id": "course-100",
+    "system": "Hématologie / Immunologie"
+  },
+  {
+    "title": "Le système ABO-rhésus",
+    "sourceSection": "Biologie — Admissibilité",
+    "id": "course-101",
+    "system": "Hématologie / Immunologie"
+  },
+  {
+    "title": "Hypersensibilité de type 1",
+    "sourceSection": "Biologie — Admissibilité",
+    "id": "course-102",
+    "system": "Hématologie / Immunologie"
+  },
+  {
+    "title": "Hypersensibilité de type 2",
+    "sourceSection": "Biologie — Admissibilité",
+    "id": "course-103",
+    "system": "Hématologie / Immunologie"
+  },
+  {
+    "title": "Hypersensibilité de type 3",
+    "sourceSection": "Biologie — Admissibilité",
+    "id": "course-104",
+    "system": "Hématologie / Immunologie"
+  },
+  {
+    "title": "Hypersensibilité de type 4",
+    "sourceSection": "Biologie — Admissibilité",
+    "id": "course-105",
+    "system": "Hématologie / Immunologie"
+  },
+  {
+    "title": "L'auto-immunité",
+    "sourceSection": "Biologie — Admissibilité",
+    "id": "course-106",
+    "system": "Hématologie / Immunologie"
+  },
+  {
+    "title": "Les immunoglobulines",
+    "sourceSection": "Biologie — Admissibilité",
+    "id": "course-107",
+    "system": "Hématologie / Immunologie"
+  },
+  {
+    "title": "Les lymphocytes",
+    "sourceSection": "Biologie — Admissibilité",
+    "id": "course-108",
+    "system": "Hématologie / Immunologie"
+  },
+  {
+    "title": "Les polynucléaires",
+    "sourceSection": "Biologie — Admissibilité",
+    "id": "course-109",
+    "system": "Hématologie / Immunologie"
+  },
+  {
+    "title": "Le système de complément",
+    "sourceSection": "Biologie — Admissibilité",
+    "id": "course-110",
+    "system": "Hématologie / Immunologie"
+  },
+  {
+    "title": "Equilibre hydro-électrolytique",
+    "sourceSection": "Biologie — Admissibilité",
+    "id": "course-111",
+    "system": "Endocrinologie / Métabolisme"
+  },
+  {
+    "title": "Equilibre acido-basique",
+    "sourceSection": "Biologie — Admissibilité",
+    "id": "course-112",
+    "system": "Endocrinologie / Métabolisme"
+  },
+  {
+    "title": "Equilibre phospho-calcique",
+    "sourceSection": "Biologie — Admissibilité",
+    "id": "course-113",
+    "system": "Endocrinologie / Métabolisme"
+  },
+  {
+    "title": "Hormones thyroidiennes",
+    "sourceSection": "Biologie — Admissibilité",
+    "id": "course-114",
+    "system": "Endocrinologie / Métabolisme"
+  },
+  {
+    "title": "Physiologie de la medullosurrénale",
+    "sourceSection": "Biologie — Admissibilité",
+    "id": "course-115",
+    "system": "Endocrinologie / Métabolisme"
+  },
+  {
+    "title": "Physiologie de l'appareil hypothalamo-hypophysaire",
+    "sourceSection": "Biologie — Admissibilité",
+    "id": "course-116",
+    "system": "Endocrinologie / Métabolisme"
+  },
+  {
+    "title": "Liporotéines plasmatiques",
+    "sourceSection": "Biologie — Admissibilité",
+    "id": "course-117",
+    "system": "Endocrinologie / Métabolisme"
+  },
+  {
+    "title": "Glycémie régulation et exploration",
+    "sourceSection": "Biologie — Admissibilité",
+    "id": "course-118",
+    "system": "Endocrinologie / Métabolisme"
+  },
+  {
+    "title": "Régulation thermique",
+    "sourceSection": "Biologie — Admissibilité",
+    "id": "course-119",
+    "system": "Endocrinologie / Métabolisme"
+  },
+  {
+    "title": "Cancérogénèse",
+    "sourceSection": "Biologie — Admissibilité",
+    "id": "course-120",
+    "system": "Biologie générale / Physiologie"
+  },
+  {
+    "title": "Marqueurs tumoraux",
+    "sourceSection": "Biologie — Admissibilité",
+    "id": "course-121",
+    "system": "Biologie générale / Physiologie"
+  },
+  {
+    "title": "Système ABO, Rh (biochimie, génétique, détermination)",
+    "sourceSection": "Biologie — Admissibilité",
+    "id": "course-122",
+    "system": "Hématologie / Immunologie"
+  },
+  {
+    "title": "Hémostase (physiologie et exploration)",
+    "sourceSection": "Biologie — Admissibilité",
+    "id": "course-123",
+    "system": "Hématologie / Immunologie"
+  },
+  {
+    "title": "Métabolisme du Fer",
+    "sourceSection": "Biologie — Admissibilité",
+    "id": "course-124",
+    "system": "Hématologie / Immunologie"
+  },
+  {
+    "title": "Hémolyse",
+    "sourceSection": "Biologie — Admissibilité",
+    "id": "course-125",
+    "system": "Hématologie / Immunologie"
+  },
+  {
+    "title": "Hémoglobine (Structure + Biosynthèse + Fonctions)",
+    "sourceSection": "Biologie — Admissibilité",
+    "id": "course-126",
+    "system": "Hématologie / Immunologie"
+  },
+  {
+    "title": "Globule rouge (morphologie, physiologie)",
+    "sourceSection": "Biologie — Admissibilité",
+    "id": "course-127",
+    "system": "Hématologie / Immunologie"
+  },
+  {
+    "title": "Métabolisme de la vitamine B12",
+    "sourceSection": "Biologie — Admissibilité",
+    "id": "course-128",
+    "system": "Hématologie / Immunologie"
+  },
+  {
+    "title": "Les plaquettes sanguines",
+    "sourceSection": "Biologie — Admissibilité",
+    "id": "course-129",
+    "system": "Hématologie / Immunologie"
+  },
+  {
+    "title": "Polynucléaires",
+    "sourceSection": "Biologie — Admissibilité",
+    "id": "course-130",
+    "system": "Hématologie / Immunologie"
+  },
+  {
+    "title": "Hypersensibilité de type 2 = cytotoxique",
+    "sourceSection": "Biologie — Admissibilité",
+    "id": "course-131",
+    "system": "Hématologie / Immunologie"
+  },
+  {
+    "title": "Hypersensibilité de type 3 = à complexe immun",
+    "sourceSection": "Biologie — Admissibilité",
+    "id": "course-132",
+    "system": "Hématologie / Immunologie"
+  },
+  {
+    "title": "Hypersensibilité de type 4 = retardée",
+    "sourceSection": "Biologie — Admissibilité",
+    "id": "course-133",
+    "system": "Hématologie / Immunologie"
+  },
+  {
+    "title": "Système de complément",
+    "sourceSection": "Biologie — Admissibilité",
+    "id": "course-134",
+    "system": "Hématologie / Immunologie"
+  },
+  {
+    "title": "Inflammation granulomateuse",
+    "sourceSection": "Biologie — Admissibilité",
+    "id": "course-135",
+    "system": "Hématologie / Immunologie"
+  },
+  {
+    "title": "Les protéines sériques",
+    "sourceSection": "Biologie — Admissibilité",
+    "id": "course-136",
+    "system": "Hématologie / Immunologie"
+  },
+  {
+    "title": "Test de Coombs direct et indirect",
+    "sourceSection": "Biologie — Admissibilité",
+    "id": "course-137",
+    "system": "Hématologie / Immunologie"
+  },
+  {
+    "title": "Fécondation",
+    "sourceSection": "Biologie — Admissibilité",
+    "id": "course-138",
+    "system": "Gynécologie / Obstétrique"
+  },
+  {
+    "title": "Cycle menstruel",
+    "sourceSection": "Biologie — Admissibilité",
+    "id": "course-139",
+    "system": "Gynécologie / Obstétrique"
+  },
+  {
+    "title": "Ovogénèse",
+    "sourceSection": "Biologie — Admissibilité",
+    "id": "course-140",
+    "system": "Gynécologie / Obstétrique"
+  },
+  {
+    "title": "La sécretion gastrique",
+    "sourceSection": "Biologie — Admissibilité",
+    "id": "course-141",
+    "system": "Digestif / Hépato-pancréatique"
+  },
+  {
+    "title": "Digestion et absorption intestinale",
+    "sourceSection": "Biologie — Admissibilité",
+    "id": "course-142",
+    "system": "Digestif / Hépato-pancréatique"
+  },
+  {
+    "title": "La circulation sanguine",
+    "sourceSection": "Biologie — Admissibilité",
+    "id": "course-143",
+    "system": "Cardiovasculaire"
+  },
+  {
+    "title": "La régulation de la pression artérielle",
+    "sourceSection": "Biologie — Admissibilité",
+    "id": "course-144",
+    "system": "Cardiovasculaire"
+  },
+  {
+    "title": "Le débit cardiaque et ses facteurs d'adaptation",
+    "sourceSection": "Biologie — Admissibilité",
+    "id": "course-145",
+    "system": "Cardiovasculaire"
+  },
+  {
+    "title": "Le syndrome extra-pyramidal",
+    "sourceSection": "Biologie — Admissibilité",
+    "id": "course-146",
+    "system": "Neurologie / Neurochirurgie"
+  },
+  {
+    "title": "La physiologie du cervelet",
+    "sourceSection": "Biologie — Admissibilité",
+    "id": "course-147",
+    "system": "Neurologie / Neurochirurgie"
+  },
+  {
+    "title": "La physiologie de la sensibilité",
+    "sourceSection": "Biologie — Admissibilité",
+    "id": "course-148",
+    "system": "Neurologie / Neurochirurgie"
+  },
+  {
+    "title": "Le système pyramidal",
+    "sourceSection": "Biologie — Admissibilité",
+    "id": "course-149",
+    "system": "Neurologie / Neurochirurgie"
+  },
+  {
+    "title": "La filtration glomérulaire",
+    "sourceSection": "Biologie — Admissibilité",
+    "id": "course-150",
+    "system": "Néphrologie / Urologie"
+  },
+  {
+    "title": "Les fonctions tubulaires",
+    "sourceSection": "Biologie — Admissibilité",
+    "id": "course-151",
+    "system": "Néphrologie / Urologie"
+  },
+  {
+    "title": "Ventilation pulmonaire",
+    "sourceSection": "Biologie — Admissibilité",
+    "id": "course-152",
+    "system": "Pneumologie / Thorax"
+  },
+  {
+    "title": "L'hématose",
+    "sourceSection": "Biologie — Admissibilité",
+    "id": "course-153",
+    "system": "Pneumologie / Thorax"
+  },
+  {
+    "title": "Bronchomotricité et bronchosensibilité",
+    "sourceSection": "Biologie — Admissibilité",
+    "id": "course-154",
+    "system": "Pneumologie / Thorax"
+  },
+  {
+    "title": "La digestion et absorption intestinale",
+    "sourceSection": "Biologie — Admissibilité",
+    "id": "course-155",
+    "system": "Digestif / Hépato-pancréatique"
+  },
+  {
+    "title": "La bronchomotricité et bronchosensibilité",
+    "sourceSection": "Biologie — Admissibilité",
+    "id": "course-156",
+    "system": "Pneumologie / Thorax"
+  },
+  {
+    "title": "La ventilation pulmonaire",
+    "sourceSection": "Biologie — Admissibilité",
+    "id": "course-157",
+    "system": "Pneumologie / Thorax"
+  },
+  {
+    "title": "Le décollement épiphysaire",
+    "sourceSection": "Chirurgie — Admissibilité",
+    "id": "course-158",
+    "system": "Traumatologie / Orthopédie"
+  },
+  {
+    "title": "Anatomie pathologie des hypersortables",
+    "sourceSection": "Chirurgie — Admissibilité",
+    "id": "course-159",
+    "system": "Traumatologie / Orthopédie"
+  },
+  {
+    "title": "Traumatisme du bassin",
+    "sourceSection": "Chirurgie — Admissibilité",
+    "id": "course-160",
+    "system": "Traumatologie / Orthopédie"
+  },
+  {
+    "title": "Fracture de la diaphyse fémorale",
+    "sourceSection": "Chirurgie — Admissibilité",
+    "id": "course-161",
+    "system": "Traumatologie / Orthopédie"
+  },
+  {
+    "title": "Fractures du massif trochantérien",
+    "sourceSection": "Chirurgie — Admissibilité",
+    "id": "course-162",
+    "system": "Traumatologie / Orthopédie"
+  },
+  {
+    "title": "Fractures du col de fémur",
+    "sourceSection": "Chirurgie — Admissibilité",
+    "id": "course-163",
+    "system": "Traumatologie / Orthopédie"
+  },
+  {
+    "title": "Fracture de l'extrémité distale du fémur",
+    "sourceSection": "Chirurgie — Admissibilité",
+    "id": "course-164",
+    "system": "Traumatologie / Orthopédie"
+  },
+  {
+    "title": "Fracture de la jambe",
+    "sourceSection": "Chirurgie — Admissibilité",
+    "id": "course-165",
+    "system": "Traumatologie / Orthopédie"
+  },
+  {
+    "title": "Fractures malléolaires",
+    "sourceSection": "Chirurgie — Admissibilité",
+    "id": "course-166",
+    "system": "Traumatologie / Orthopédie"
+  },
+  {
+    "title": "trauma de l'épaule ES humérus",
+    "sourceSection": "Chirurgie — Admissibilité",
+    "id": "course-167",
+    "system": "Traumatologie / Orthopédie"
+  },
+  {
+    "title": "Fracture de la diaphyse humérale",
+    "sourceSection": "Chirurgie — Admissibilité",
+    "id": "course-168",
+    "system": "Traumatologie / Orthopédie"
+  },
+  {
+    "title": "trauma du coude palette humérale",
+    "sourceSection": "Chirurgie — Admissibilité",
+    "id": "course-169",
+    "system": "Traumatologie / Orthopédie"
+  },
+  {
+    "title": "Fracture des 2 os de l'avant-bras",
+    "sourceSection": "Chirurgie — Admissibilité",
+    "id": "course-170",
+    "system": "Traumatologie / Orthopédie"
+  },
+  {
+    "title": "trauma de poigné extrémité inf du radius",
+    "sourceSection": "Chirurgie — Admissibilité",
+    "id": "course-171",
+    "system": "Traumatologie / Orthopédie"
+  },
+  {
+    "title": "Spondylodiscite tuberculeuse (mal de pott)",
+    "sourceSection": "Chirurgie — Admissibilité",
+    "id": "course-172",
+    "system": "Traumatologie / Orthopédie"
+  },
+  {
+    "title": "Tuberculose ostéo-articulaire",
+    "sourceSection": "Chirurgie — Admissibilité",
+    "id": "course-173",
+    "system": "Traumatologie / Orthopédie"
+  },
+  {
+    "title": "Les tumeurs osseuses",
+    "sourceSection": "Chirurgie — Admissibilité",
+    "id": "course-174",
+    "system": "Traumatologie / Orthopédie"
+  },
+  {
+    "title": "Fracture de l'extrémité supérieure du tibial",
+    "sourceSection": "Chirurgie — Admissibilité",
+    "id": "course-175",
+    "system": "Traumatologie / Orthopédie"
+  },
+  {
+    "title": "Fracture de patella",
+    "sourceSection": "Chirurgie — Admissibilité",
+    "id": "course-176",
+    "system": "Traumatologie / Orthopédie"
+  },
+  {
+    "title": "Lésions ligamentaires du genou",
+    "sourceSection": "Chirurgie — Admissibilité",
+    "id": "course-177",
+    "system": "Traumatologie / Orthopédie"
+  },
+  {
+    "title": "Lésions méniscales du genou",
+    "sourceSection": "Chirurgie — Admissibilité",
+    "id": "course-178",
+    "system": "Traumatologie / Orthopédie"
+  },
+  {
+    "title": "Entorse de la cheville",
+    "sourceSection": "Chirurgie — Admissibilité",
+    "id": "course-179",
+    "system": "Traumatologie / Orthopédie"
+  },
+  {
+    "title": "Fracture du pilon tibial",
+    "sourceSection": "Chirurgie — Admissibilité",
+    "id": "course-180",
+    "system": "Traumatologie / Orthopédie"
+  },
+  {
+    "title": "instabilité de l'épaule",
+    "sourceSection": "Chirurgie — Admissibilité",
+    "id": "course-181",
+    "system": "Traumatologie / Orthopédie"
+  },
+  {
+    "title": "trauma de l'épaule Fr clavicule",
+    "sourceSection": "Chirurgie — Admissibilité",
+    "id": "course-182",
+    "system": "Traumatologie / Orthopédie"
+  },
+  {
+    "title": "trauma de l'épaule luxation",
+    "sourceSection": "Chirurgie — Admissibilité",
+    "id": "course-183",
+    "system": "Traumatologie / Orthopédie"
+  },
+  {
+    "title": "trauma épaule disjonction acromio-claviculaire",
+    "sourceSection": "Chirurgie — Admissibilité",
+    "id": "course-184",
+    "system": "Traumatologie / Orthopédie"
+  },
+  {
+    "title": "trauma épaule disjonction sterno-claviculaire",
+    "sourceSection": "Chirurgie — Admissibilité",
+    "id": "course-185",
+    "system": "Traumatologie / Orthopédie"
+  },
+  {
+    "title": "trauma épaule rupture de la coiffe",
+    "sourceSection": "Chirurgie — Admissibilité",
+    "id": "course-186",
+    "system": "Traumatologie / Orthopédie"
+  },
+  {
+    "title": "trauma du coude luxation du coude",
+    "sourceSection": "Chirurgie — Admissibilité",
+    "id": "course-187",
+    "system": "Traumatologie / Orthopédie"
+  },
+  {
+    "title": "trauma du coude olécrane",
+    "sourceSection": "Chirurgie — Admissibilité",
+    "id": "course-188",
+    "system": "Traumatologie / Orthopédie"
+  },
+  {
+    "title": "trauma du coude tête radiale",
+    "sourceSection": "Chirurgie — Admissibilité",
+    "id": "course-189",
+    "system": "Traumatologie / Orthopédie"
+  },
+  {
+    "title": "trauma de poigne extrémité inf du radius",
+    "sourceSection": "Chirurgie — Admissibilité",
+    "id": "course-190",
+    "system": "Traumatologie / Orthopédie"
+  },
+  {
+    "title": "trauma de poignet luxation péri-ulnaire du carpe",
+    "sourceSection": "Chirurgie — Admissibilité",
+    "id": "course-191",
+    "system": "Traumatologie / Orthopédie"
+  },
+  {
+    "title": "trauma de poignet scaphoïde",
+    "sourceSection": "Chirurgie — Admissibilité",
+    "id": "course-192",
+    "system": "Traumatologie / Orthopédie"
+  },
+  {
+    "title": "Le cancer de l'oesophage",
+    "sourceSection": "Chirurgie — Admissibilité",
+    "id": "course-193",
+    "system": "Digestif / Hépato-pancréatique"
+  },
+  {
+    "title": "La lithiase vésiculaire",
+    "sourceSection": "Chirurgie — Admissibilité",
+    "id": "course-194",
+    "system": "Digestif / Hépato-pancréatique"
+  },
+  {
+    "title": "Le kyste hydatique du foie",
+    "sourceSection": "Chirurgie — Admissibilité",
+    "id": "course-195",
+    "system": "Digestif / Hépato-pancréatique"
+  },
+  {
+    "title": "Le cancer de l’estomac",
+    "sourceSection": "Chirurgie — Admissibilité",
+    "id": "course-196",
+    "system": "Digestif / Hépato-pancréatique"
+  },
+  {
+    "title": "L'ictère rétentionnel",
+    "sourceSection": "Chirurgie — Admissibilité",
+    "id": "course-197",
+    "system": "Digestif / Hépato-pancréatique"
+  },
+  {
+    "title": "Le cancer du rectum",
+    "sourceSection": "Chirurgie — Admissibilité",
+    "id": "course-198",
+    "system": "Digestif / Hépato-pancréatique"
+  },
+  {
+    "title": "Le cancer du colon",
+    "sourceSection": "Chirurgie — Admissibilité",
+    "id": "course-199",
+    "system": "Digestif / Hépato-pancréatique"
+  },
+  {
+    "title": "Le cancer du pancréas",
+    "sourceSection": "Chirurgie — Admissibilité",
+    "id": "course-200",
+    "system": "Digestif / Hépato-pancréatique"
+  },
+  {
+    "title": "Les hernies de la paroi abdominale",
+    "sourceSection": "Chirurgie — Admissibilité",
+    "id": "course-201",
+    "system": "Digestif / Hépato-pancréatique"
+  },
+  {
+    "title": "Les tumeurs du foie",
+    "sourceSection": "Chirurgie — Admissibilité",
+    "id": "course-202",
+    "system": "Digestif / Hépato-pancréatique"
+  },
+  {
+    "title": "Traumatisme du rachis cervical",
+    "sourceSection": "Chirurgie — Admissibilité",
+    "id": "course-203",
+    "system": "Neurologie / Neurochirurgie"
+  },
+  {
+    "title": "Sd de la queue de cheval",
+    "sourceSection": "Chirurgie — Admissibilité",
+    "id": "course-204",
+    "system": "Neurologie / Neurochirurgie"
+  },
+  {
+    "title": "Hématome sous dural chronique",
+    "sourceSection": "Chirurgie — Admissibilité",
+    "id": "course-205",
+    "system": "Neurologie / Neurochirurgie"
+  },
+  {
+    "title": "Les tumeurs de la fosse cérébrale posterieure",
+    "sourceSection": "Chirurgie — Admissibilité",
+    "id": "course-206",
+    "system": "Neurologie / Neurochirurgie"
+  },
+  {
+    "title": "Traumatisme crânien",
+    "sourceSection": "Chirurgie — Admissibilité",
+    "id": "course-207",
+    "system": "Neurologie / Neurochirurgie"
+  },
+  {
+    "title": "Traumatisme du rachis dorso-lombaire",
+    "sourceSection": "Chirurgie — Admissibilité",
+    "id": "course-208",
+    "system": "Neurologie / Neurochirurgie"
+  },
+  {
+    "title": "AOMI",
+    "sourceSection": "Chirurgie — Admissibilité",
+    "id": "course-209",
+    "system": "Cardiovasculaire"
+  },
+  {
+    "title": "Anévrysme de l’aorte",
+    "sourceSection": "Chirurgie — Admissibilité",
+    "id": "course-210",
+    "system": "Cardiovasculaire"
+  },
+  {
+    "title": "Coarctation de l’aorte",
+    "sourceSection": "Chirurgie — Admissibilité",
+    "id": "course-211",
+    "system": "Cardiovasculaire"
+  },
+  {
+    "title": "Les varices des MI",
+    "sourceSection": "Chirurgie — Admissibilité",
+    "id": "course-212",
+    "system": "Cardiovasculaire"
+  },
+  {
+    "title": "Cancer du rein",
+    "sourceSection": "Chirurgie — Admissibilité",
+    "id": "course-213",
+    "system": "Néphrologie / Urologie"
+  },
+  {
+    "title": "L'hypertrophie bénigne de la prostate",
+    "sourceSection": "Chirurgie — Admissibilité",
+    "id": "course-214",
+    "system": "Néphrologie / Urologie"
+  },
+  {
+    "title": "Lithiase urinaire",
+    "sourceSection": "Chirurgie — Admissibilité",
+    "id": "course-215",
+    "system": "Néphrologie / Urologie"
+  },
+  {
+    "title": "Le cancer de la vessie",
+    "sourceSection": "Chirurgie — Admissibilité",
+    "id": "course-216",
+    "system": "Néphrologie / Urologie"
+  },
+  {
+    "title": "Les uropathies malformatives",
+    "sourceSection": "Chirurgie — Admissibilité",
+    "id": "course-217",
+    "system": "Néphrologie / Urologie"
+  },
+  {
+    "title": "Le cancer de la prostate",
+    "sourceSection": "Chirurgie — Admissibilité",
+    "id": "course-218",
+    "system": "Néphrologie / Urologie"
+  },
+  {
+    "title": "Fistule uro-génitale",
+    "sourceSection": "Chirurgie — Admissibilité",
+    "id": "course-219",
+    "system": "Néphrologie / Urologie"
+  },
+  {
+    "title": "Le cancer du testicule",
+    "sourceSection": "Chirurgie — Admissibilité",
+    "id": "course-220",
+    "system": "Néphrologie / Urologie"
+  },
+  {
+    "title": "sténose de l'urètre",
+    "sourceSection": "Chirurgie — Admissibilité",
+    "id": "course-221",
+    "system": "Néphrologie / Urologie"
+  },
+  {
+    "title": "Le cancer du larynx",
+    "sourceSection": "Chirurgie — Admissibilité",
+    "id": "course-222",
+    "system": "ORL / Ophtalmologie"
+  },
+  {
+    "title": "Le cancer du cavum",
+    "sourceSection": "Chirurgie — Admissibilité",
+    "id": "course-223",
+    "system": "ORL / Ophtalmologie"
+  },
+  {
+    "title": "L'otite moyenne chronique simple",
+    "sourceSection": "Chirurgie — Admissibilité",
+    "id": "course-224",
+    "system": "ORL / Ophtalmologie"
+  },
+  {
+    "title": "L'otite moyenne chronique dangereuse",
+    "sourceSection": "Chirurgie — Admissibilité",
+    "id": "course-225",
+    "system": "ORL / Ophtalmologie"
+  },
+  {
+    "title": "Le goitre thyroidien",
+    "sourceSection": "Chirurgie — Admissibilité",
+    "id": "course-226",
+    "system": "ORL / Ophtalmologie"
+  },
+  {
+    "title": "Cancer de la thyroide",
+    "sourceSection": "Chirurgie — Admissibilité",
+    "id": "course-227",
+    "system": "ORL / Ophtalmologie"
+  },
+  {
+    "title": "Le cancer de la langue",
+    "sourceSection": "Chirurgie — Admissibilité",
+    "id": "course-228",
+    "system": "ORL / Ophtalmologie"
+  },
+  {
+    "title": "Le cancer des lévres",
+    "sourceSection": "Chirurgie — Admissibilité",
+    "id": "course-229",
+    "system": "ORL / Ophtalmologie"
+  },
+  {
+    "title": "Le prolapus génital ++++(consulter le cours du Pr.Boukhani)",
+    "sourceSection": "Chirurgie — Admissibilité",
+    "id": "course-230",
+    "system": "Gynécologie / Obstétrique"
+  },
+  {
+    "title": "Le cancer du sein",
+    "sourceSection": "Chirurgie — Admissibilité",
+    "id": "course-231",
+    "system": "Gynécologie / Obstétrique"
+  },
+  {
+    "title": "Le cancer du col utérin",
+    "sourceSection": "Chirurgie — Admissibilité",
+    "id": "course-232",
+    "system": "Gynécologie / Obstétrique"
+  },
+  {
+    "title": "Le cancer de l’endomètre",
+    "sourceSection": "Chirurgie — Admissibilité",
+    "id": "course-233",
+    "system": "Gynécologie / Obstétrique"
+  },
+  {
+    "title": "Kyste hydatique pulmonaire",
+    "sourceSection": "Chirurgie — Admissibilité",
+    "id": "course-234",
+    "system": "Pneumologie / Thorax"
+  },
+  {
+    "title": "Cancer du poumon",
+    "sourceSection": "Chirurgie — Admissibilité",
+    "id": "course-235",
+    "system": "Pneumologie / Thorax"
+  },
+  {
+    "title": "cataracte",
+    "sourceSection": "Chirurgie — Admissibilité",
+    "id": "course-236",
+    "system": "ORL / Ophtalmologie"
+  },
+  {
+    "title": "hémophilie",
+    "sourceSection": "Médecine — Admissibilité",
+    "id": "course-237",
+    "system": "Hématologie / Immunologie"
+  },
+  {
+    "title": "Purpura (better)",
+    "sourceSection": "Médecine — Admissibilité",
+    "id": "course-238",
+    "system": "Hématologie / Immunologie"
+  },
+  {
+    "title": "Purpuras",
+    "sourceSection": "Médecine — Admissibilité",
+    "id": "course-239",
+    "system": "Hématologie / Immunologie"
+  },
+  {
+    "title": "Les anémies",
+    "sourceSection": "Médecine — Admissibilité",
+    "id": "course-240",
+    "system": "Hématologie / Immunologie"
+  },
+  {
+    "title": "Anémie par carence martiale",
+    "sourceSection": "Médecine — Admissibilité",
+    "id": "course-241",
+    "system": "Hématologie / Immunologie"
+  },
+  {
+    "title": "Thalassémie",
+    "sourceSection": "Médecine — Admissibilité",
+    "id": "course-242",
+    "system": "Hématologie / Immunologie"
+  },
+  {
+    "title": "Sphérocytose",
+    "sourceSection": "Médecine — Admissibilité",
+    "id": "course-243",
+    "system": "Hématologie / Immunologie"
+  },
+  {
+    "title": "Décifit en G6PD et en pyruvate kinase",
+    "sourceSection": "Médecine — Admissibilité",
+    "id": "course-244",
+    "system": "Hématologie / Immunologie"
+  },
+  {
+    "title": "La drépanocytose",
+    "sourceSection": "Médecine — Admissibilité",
+    "id": "course-245",
+    "system": "Hématologie / Immunologie"
+  },
+  {
+    "title": "Anémis mégaloblastiques",
+    "sourceSection": "Médecine — Admissibilité",
+    "id": "course-246",
+    "system": "Hématologie / Immunologie"
+  },
+  {
+    "title": "Les leucémies aigues",
+    "sourceSection": "Médecine — Admissibilité",
+    "id": "course-247",
+    "system": "Hématologie / Immunologie"
+  },
+  {
+    "title": "Leucémie myéloide chronique",
+    "sourceSection": "Médecine — Admissibilité",
+    "id": "course-248",
+    "system": "Hématologie / Immunologie"
+  },
+  {
+    "title": "La polyglobulie de Vaquez",
+    "sourceSection": "Médecine — Admissibilité",
+    "id": "course-249",
+    "system": "Hématologie / Immunologie"
+  },
+  {
+    "title": "Leucémie lymphoide chronique",
+    "sourceSection": "Médecine — Admissibilité",
+    "id": "course-250",
+    "system": "Hématologie / Immunologie"
+  },
+  {
+    "title": "myélome multiple",
+    "sourceSection": "Médecine — Admissibilité",
+    "id": "course-251",
+    "system": "Hématologie / Immunologie"
+  },
+  {
+    "title": "Maladie de Hodgkin",
+    "sourceSection": "Médecine — Admissibilité",
+    "id": "course-252",
+    "system": "Hématologie / Immunologie"
+  },
+  {
+    "title": "Lymphome non Hodgkinien (Hamza)",
+    "sourceSection": "Médecine — Admissibilité",
+    "id": "course-253",
+    "system": "Hématologie / Immunologie"
+  },
+  {
+    "title": "Insuffisance médullaire",
+    "sourceSection": "Médecine — Admissibilité",
+    "id": "course-254",
+    "system": "Hématologie / Immunologie"
+  },
+  {
+    "title": "Les protéines sériques",
+    "sourceSection": "Médecine — Admissibilité",
+    "id": "course-255",
+    "system": "Hématologie / Immunologie"
+  },
+  {
+    "title": "Test de Coombs direct et indirect",
+    "sourceSection": "Médecine — Admissibilité",
+    "id": "course-256",
+    "system": "Hématologie / Immunologie"
+  },
+  {
+    "title": "Paludisme",
+    "sourceSection": "Médecine — Admissibilité",
+    "id": "course-257",
+    "system": "Infectiologie"
+  },
+  {
+    "title": "Leptospirose",
+    "sourceSection": "Médecine — Admissibilité",
+    "id": "course-258",
+    "system": "Infectiologie"
+  },
+  {
+    "title": "Septicémie",
+    "sourceSection": "Médecine — Admissibilité",
+    "id": "course-259",
+    "system": "Infectiologie"
+  },
+  {
+    "title": "Fièvre prolongée inexpliquée",
+    "sourceSection": "Médecine — Admissibilité",
+    "id": "course-260",
+    "system": "Infectiologie"
+  },
+  {
+    "title": "Fièvre typhoïde",
+    "sourceSection": "Médecine — Admissibilité",
+    "id": "course-261",
+    "system": "Infectiologie"
+  },
+  {
+    "title": "VIH",
+    "sourceSection": "Médecine — Admissibilité",
+    "id": "course-262",
+    "system": "Infectiologie"
+  },
+  {
+    "title": "Lupus",
+    "sourceSection": "Médecine — Admissibilité",
+    "id": "course-263",
+    "system": "Autres / À classer"
+  },
+  {
+    "title": "Sarcoidose",
+    "sourceSection": "Médecine — Admissibilité",
+    "id": "course-264",
+    "system": "Autres / À classer"
+  },
+  {
+    "title": "Amylose",
+    "sourceSection": "Médecine — Admissibilité",
+    "id": "course-265",
+    "system": "Autres / À classer"
+  },
+  {
+    "title": "Purpura rhumatoïde",
+    "sourceSection": "Médecine — Admissibilité",
+    "id": "course-266",
+    "system": "Autres / À classer"
+  },
+  {
+    "title": "Syndrome de Gougerot-Sjogren",
+    "sourceSection": "Médecine — Admissibilité",
+    "id": "course-267",
+    "system": "Autres / À classer"
+  },
+  {
+    "title": "La goutte",
+    "sourceSection": "Médecine — Admissibilité",
+    "id": "course-268",
+    "system": "Autres / À classer"
+  },
+  {
+    "title": "SPA",
+    "sourceSection": "Médecine — Admissibilité",
+    "id": "course-269",
+    "system": "Autres / À classer"
+  },
+  {
+    "title": "Dépression",
+    "sourceSection": "Médecine — Admissibilité",
+    "id": "course-270",
+    "system": "Psychiatrie"
+  },
+  {
+    "title": "L’anxiété",
+    "sourceSection": "Médecine — Admissibilité",
+    "id": "course-271",
+    "system": "Psychiatrie"
+  },
+  {
+    "title": "Le délire",
+    "sourceSection": "Médecine — Admissibilité",
+    "id": "course-272",
+    "system": "Psychiatrie"
+  },
+  {
+    "title": "L’hystérie",
+    "sourceSection": "Médecine — Admissibilité",
+    "id": "course-273",
+    "system": "Psychiatrie"
+  },
+  {
+    "title": "Troubles bipolaires",
+    "sourceSection": "Médecine — Admissibilité",
+    "id": "course-274",
+    "system": "Psychiatrie"
+  },
+  {
+    "title": "RAA",
+    "sourceSection": "Médecine — Admissibilité",
+    "id": "course-275",
+    "system": "Cardiovasculaire"
+  },
+  {
+    "title": "Insuffisance Aortique",
+    "sourceSection": "Médecine — Admissibilité",
+    "id": "course-276",
+    "system": "Cardiovasculaire"
+  },
+  {
+    "title": "Rétrécissement aortique",
+    "sourceSection": "Médecine — Admissibilité",
+    "id": "course-277",
+    "system": "Cardiovasculaire"
+  },
+  {
+    "title": "Insuffisance Mitrale",
+    "sourceSection": "Médecine — Admissibilité",
+    "id": "course-278",
+    "system": "Cardiovasculaire"
+  },
+  {
+    "title": "Rétrécissement Mitral (la plus fréquente des valvulopathies)",
+    "sourceSection": "Médecine — Admissibilité",
+    "id": "course-279",
+    "system": "Cardiovasculaire"
+  },
+  {
+    "title": "Résumé valvulopathie partie 1",
+    "sourceSection": "Médecine — Admissibilité",
+    "id": "course-280",
+    "system": "Cardiovasculaire"
+  },
+  {
+    "title": "Résumé valvulopathie partie 2",
+    "sourceSection": "Médecine — Admissibilité",
+    "id": "course-281",
+    "system": "Cardiovasculaire"
+  },
+  {
+    "title": "Endocardite infectieuse",
+    "sourceSection": "Médecine — Admissibilité",
+    "id": "course-282",
+    "system": "Cardiovasculaire"
+  },
+  {
+    "title": "insuffisance cardiaque",
+    "sourceSection": "Médecine — Admissibilité",
+    "id": "course-283",
+    "system": "Cardiovasculaire"
+  },
+  {
+    "title": "HTA de l'adulte",
+    "sourceSection": "Médecine — Admissibilité",
+    "id": "course-284",
+    "system": "Cardiovasculaire"
+  },
+  {
+    "title": "péricaridte aigue",
+    "sourceSection": "Médecine — Admissibilité",
+    "id": "course-285",
+    "system": "Cardiovasculaire"
+  },
+  {
+    "title": "insuffisance coronaire",
+    "sourceSection": "Médecine — Admissibilité",
+    "id": "course-286",
+    "system": "Cardiovasculaire"
+  },
+  {
+    "title": "péricardite chronique constrictive",
+    "sourceSection": "Médecine — Admissibilité",
+    "id": "course-287",
+    "system": "Cardiovasculaire"
+  },
+  {
+    "title": "Le coeur pulmonaire chronique (Mounib)",
+    "sourceSection": "Médecine — Admissibilité",
+    "id": "course-288",
+    "system": "Cardiovasculaire"
+  },
+  {
+    "title": "hypothyroidie",
+    "sourceSection": "Médecine — Admissibilité",
+    "id": "course-289",
+    "system": "Endocrinologie / Métabolisme"
+  },
+  {
+    "title": "Hyperparathyroïdie",
+    "sourceSection": "Médecine — Admissibilité",
+    "id": "course-290",
+    "system": "Endocrinologie / Métabolisme"
+  },
+  {
+    "title": "hypercorticisme",
+    "sourceSection": "Médecine — Admissibilité",
+    "id": "course-291",
+    "system": "Endocrinologie / Métabolisme"
+  },
+  {
+    "title": "hyperthyroidie",
+    "sourceSection": "Médecine — Admissibilité",
+    "id": "course-292",
+    "system": "Endocrinologie / Métabolisme"
+  },
+  {
+    "title": "Diabète",
+    "sourceSection": "Médecine — Admissibilité",
+    "id": "course-293",
+    "system": "Endocrinologie / Métabolisme"
+  },
+  {
+    "title": "Insuffisance surrénalienne lente",
+    "sourceSection": "Médecine — Admissibilité",
+    "id": "course-294",
+    "system": "Endocrinologie / Métabolisme"
+  },
+  {
+    "title": "Dyslipidémie",
+    "sourceSection": "Médecine — Admissibilité",
+    "id": "course-295",
+    "system": "Endocrinologie / Métabolisme"
+  },
+  {
+    "title": "ulcère gastro-duodénal",
+    "sourceSection": "Médecine — Admissibilité",
+    "id": "course-296",
+    "system": "Digestif / Hépato-pancréatique"
+  },
+  {
+    "title": "tubérculose péritonéale",
+    "sourceSection": "Médecine — Admissibilité",
+    "id": "course-297",
+    "system": "Digestif / Hépato-pancréatique"
+  },
+  {
+    "title": "Pancréatite chronique",
+    "sourceSection": "Médecine — Admissibilité",
+    "id": "course-298",
+    "system": "Digestif / Hépato-pancréatique"
+  },
+  {
+    "title": "Hypertension portale",
+    "sourceSection": "Médecine — Admissibilité",
+    "id": "course-299",
+    "system": "Digestif / Hépato-pancréatique"
+  },
+  {
+    "title": "Cirrhose",
+    "sourceSection": "Médecine — Admissibilité",
+    "id": "course-300",
+    "system": "Digestif / Hépato-pancréatique"
+  },
+  {
+    "title": "Les hépatites virales",
+    "sourceSection": "Médecine — Admissibilité",
+    "id": "course-301",
+    "system": "Digestif / Hépato-pancréatique"
+  },
+  {
+    "title": "les MICI",
+    "sourceSection": "Médecine — Admissibilité",
+    "id": "course-302",
+    "system": "Digestif / Hépato-pancréatique"
+  },
+  {
+    "title": "Parasitoses digestives chez l'adulte et l'enfant (Mounib)",
+    "sourceSection": "Médecine — Admissibilité",
+    "id": "course-303",
+    "system": "Digestif / Hépato-pancréatique"
+  },
+  {
+    "title": "Tuberculose pulmonaire",
+    "sourceSection": "Médecine — Admissibilité",
+    "id": "course-304",
+    "system": "Pneumologie / Thorax"
+  },
+  {
+    "title": "Asthme",
+    "sourceSection": "Médecine — Admissibilité",
+    "id": "course-305",
+    "system": "Pneumologie / Thorax"
+  },
+  {
+    "title": "Les pneumonies bactériennes et virales",
+    "sourceSection": "Médecine — Admissibilité",
+    "id": "course-306",
+    "system": "Pneumologie / Thorax"
+  },
+  {
+    "title": "DDB",
+    "sourceSection": "Médecine — Admissibilité",
+    "id": "course-307",
+    "system": "Pneumologie / Thorax"
+  },
+  {
+    "title": "Insuffisances respiratoires aigues et chroniques (Tariq)",
+    "sourceSection": "Médecine — Admissibilité",
+    "id": "course-308",
+    "system": "Pneumologie / Thorax"
+  },
+  {
+    "title": "Syphilis",
+    "sourceSection": "Médecine — Admissibilité",
+    "id": "course-309",
+    "system": "Dermatologie"
+  },
+  {
+    "title": "Herpès cutanéo-muqueux",
+    "sourceSection": "Médecine — Admissibilité",
+    "id": "course-310",
+    "system": "Dermatologie"
+  },
+  {
+    "title": "La varicelle",
+    "sourceSection": "Médecine — Admissibilité",
+    "id": "course-311",
+    "system": "Dermatologie"
+  },
+  {
+    "title": "Zona",
+    "sourceSection": "Médecine — Admissibilité",
+    "id": "course-312",
+    "system": "Dermatologie"
+  },
+  {
+    "title": "HPV",
+    "sourceSection": "Médecine — Admissibilité",
+    "id": "course-313",
+    "system": "Dermatologie"
+  },
+  {
+    "title": "Molluscum Contagiosum",
+    "sourceSection": "Médecine — Admissibilité",
+    "id": "course-314",
+    "system": "Dermatologie"
+  },
+  {
+    "title": "Les carcinomes cutanés",
+    "sourceSection": "Médecine — Admissibilité",
+    "id": "course-315",
+    "system": "Dermatologie"
+  },
+  {
+    "title": "Les urétrites (Better)",
+    "sourceSection": "Médecine — Admissibilité",
+    "id": "course-316",
+    "system": "Dermatologie"
+  },
+  {
+    "title": "Les urétrites",
+    "sourceSection": "Médecine — Admissibilité",
+    "id": "course-317",
+    "system": "Dermatologie"
+  },
+  {
+    "title": "Les vulvo-vaginites",
+    "sourceSection": "Médecine — Admissibilité",
+    "id": "course-318",
+    "system": "Dermatologie"
+  },
+  {
+    "title": "le mélanome",
+    "sourceSection": "Médecine — Admissibilité",
+    "id": "course-319",
+    "system": "Dermatologie"
+  },
+  {
+    "title": "Les cardiopathies congénitales",
+    "sourceSection": "Médecine — Admissibilité",
+    "id": "course-320",
+    "system": "Pédiatrie / Néonatologie"
+  },
+  {
+    "title": "Malnutritions Protéino-caloriques",
+    "sourceSection": "Médecine — Admissibilité",
+    "id": "course-321",
+    "system": "Pédiatrie / Néonatologie"
+  },
+  {
+    "title": "Oreillons",
+    "sourceSection": "Médecine — Admissibilité",
+    "id": "course-322",
+    "system": "Pédiatrie / Néonatologie"
+  },
+  {
+    "title": "Rachitisme",
+    "sourceSection": "Médecine — Admissibilité",
+    "id": "course-323",
+    "system": "Pédiatrie / Néonatologie"
+  },
+  {
+    "title": "Vaccination",
+    "sourceSection": "Médecine — Admissibilité",
+    "id": "course-324",
+    "system": "Pédiatrie / Néonatologie"
+  },
+  {
+    "title": "Sévices à enfant (Tarik)",
+    "sourceSection": "Médecine — Admissibilité",
+    "id": "course-325",
+    "system": "Pédiatrie / Néonatologie"
+  },
+  {
+    "title": "Les ataxies de l'enfant",
+    "sourceSection": "Médecine — Admissibilité",
+    "id": "course-326",
+    "system": "Pédiatrie / Néonatologie"
+  },
+  {
+    "title": "Retard de croissance statural chez l'enfant",
+    "sourceSection": "Médecine — Admissibilité",
+    "id": "course-327",
+    "system": "Pédiatrie / Néonatologie"
+  },
+  {
+    "title": "Masse abdominale",
+    "sourceSection": "Médecine — Admissibilité",
+    "id": "course-328",
+    "system": "Pédiatrie / Néonatologie"
+  },
+  {
+    "title": "Les infections urinaires du nourrisson et de l’enfant",
+    "sourceSection": "Médecine — Admissibilité",
+    "id": "course-329",
+    "system": "Pédiatrie / Néonatologie"
+  },
+  {
+    "title": "Infections respiratoires récidivantes du nourisson et de l'enfant",
+    "sourceSection": "Médecine — Admissibilité",
+    "id": "course-330",
+    "system": "Pédiatrie / Néonatologie"
+  },
+  {
+    "title": "Infections respiratoires récidivantes du nourrisson et de l'enfant (better)",
+    "sourceSection": "Médecine — Admissibilité",
+    "id": "course-331",
+    "system": "Pédiatrie / Néonatologie"
+  },
+  {
+    "title": "Infections néonatales (better)",
+    "sourceSection": "Médecine — Admissibilité",
+    "id": "course-332",
+    "system": "Pédiatrie / Néonatologie"
+  },
+  {
+    "title": "Infections néonatales",
+    "sourceSection": "Médecine — Admissibilité",
+    "id": "course-333",
+    "system": "Pédiatrie / Néonatologie"
+  },
+  {
+    "title": "Staphyloccocie pleuro-pulmonaire",
+    "sourceSection": "Médecine — Admissibilité",
+    "id": "course-334",
+    "system": "Pédiatrie / Néonatologie"
+  },
+  {
+    "title": "Douleurs abdominales du nourrisson et de l’enfant",
+    "sourceSection": "Médecine — Admissibilité",
+    "id": "course-335",
+    "system": "Pédiatrie / Néonatologie"
+  },
+  {
+    "title": "Fièvre éruptive chez l'enfant (Tarik)",
+    "sourceSection": "Médecine — Admissibilité",
+    "id": "course-336",
+    "system": "Pédiatrie / Néonatologie"
+  },
+  {
+    "title": "Constipation",
+    "sourceSection": "Médecine — Admissibilité",
+    "id": "course-337",
+    "system": "Pédiatrie / Néonatologie"
+  },
+  {
+    "title": "Protéinuries de I'enfant",
+    "sourceSection": "Médecine — Admissibilité",
+    "id": "course-338",
+    "system": "Pédiatrie / Néonatologie"
+  },
+  {
+    "title": "Névralgies cervico-brachiales",
+    "sourceSection": "Médecine — Admissibilité",
+    "id": "course-339",
+    "system": "Rhumatologie"
+  },
+  {
+    "title": "Sciatique",
+    "sourceSection": "Médecine — Admissibilité",
+    "id": "course-340",
+    "system": "Rhumatologie"
+  },
+  {
+    "title": "Ostéoporose",
+    "sourceSection": "Médecine — Admissibilité",
+    "id": "course-341",
+    "system": "Rhumatologie"
+  },
+  {
+    "title": "Epilepsie",
+    "sourceSection": "Médecine — Admissibilité",
+    "id": "course-342",
+    "system": "Neurologie / Neurochirurgie"
+  },
+  {
+    "title": "Polyradiculonévrite",
+    "sourceSection": "Médecine — Admissibilité",
+    "id": "course-343",
+    "system": "Neurologie / Neurochirurgie"
+  },
+  {
+    "title": "Neuropathie périphérique",
+    "sourceSection": "Médecine — Admissibilité",
+    "id": "course-344",
+    "system": "Neurologie / Neurochirurgie"
+  },
+  {
+    "title": "hémiplégies",
+    "sourceSection": "Médecine — Admissibilité",
+    "id": "course-345",
+    "system": "Neurologie / Neurochirurgie"
+  },
+  {
+    "title": "Paraplégies",
+    "sourceSection": "Médecine — Admissibilité",
+    "id": "course-346",
+    "system": "Neurologie / Neurochirurgie"
+  },
+  {
+    "title": "syndrome néphrotique",
+    "sourceSection": "Médecine — Admissibilité",
+    "id": "course-347",
+    "system": "Néphrologie / Urologie"
+  },
+  {
+    "title": "IRC",
+    "sourceSection": "Médecine — Admissibilité",
+    "id": "course-348",
+    "system": "Néphrologie / Urologie"
+  },
+  {
+    "title": "Infections urinaires de l'adulte",
+    "sourceSection": "Médecine — Admissibilité",
+    "id": "course-349",
+    "system": "Néphrologie / Urologie"
+  },
+  {
+    "title": "Pyélonéphrite chronique",
+    "sourceSection": "Médecine — Admissibilité",
+    "id": "course-350",
+    "system": "Néphrologie / Urologie"
+  },
+  {
+    "title": "Néphropathie lupique",
+    "sourceSection": "Médecine — Admissibilité",
+    "id": "course-351",
+    "system": "Néphrologie / Urologie"
+  },
+  {
+    "title": "Glomurélonéphrites introduction",
+    "sourceSection": "Médecine — Admissibilité",
+    "id": "course-352",
+    "system": "Néphrologie / Urologie"
+  },
+  {
+    "title": "LGM ou néphrose lipoidique",
+    "sourceSection": "Médecine — Admissibilité",
+    "id": "course-353",
+    "system": "Néphrologie / Urologie"
+  },
+  {
+    "title": "Hyalinose segmentaire et focale",
+    "sourceSection": "Médecine — Admissibilité",
+    "id": "course-354",
+    "system": "Néphrologie / Urologie"
+  },
+  {
+    "title": "La glomérulonéphrite extramembraneuse (GEM)",
+    "sourceSection": "Médecine — Admissibilité",
+    "id": "course-355",
+    "system": "Néphrologie / Urologie"
+  },
+  {
+    "title": "GNA post infectieuse",
+    "sourceSection": "Médecine — Admissibilité",
+    "id": "course-356",
+    "system": "Néphrologie / Urologie"
+  },
+  {
+    "title": "La néphropathie à IgA",
+    "sourceSection": "Médecine — Admissibilité",
+    "id": "course-357",
+    "system": "Néphrologie / Urologie"
+  },
+  {
+    "title": "La glomérulonéphrite membranoproliférative",
+    "sourceSection": "Médecine — Admissibilité",
+    "id": "course-358",
+    "system": "Néphrologie / Urologie"
+  },
+  {
+    "title": "Néphropathie diabètqiue",
+    "sourceSection": "Médecine — Admissibilité",
+    "id": "course-359",
+    "system": "Néphrologie / Urologie"
+  },
+  {
+    "title": "Amylose rénale",
+    "sourceSection": "Médecine — Admissibilité",
+    "id": "course-360",
+    "system": "Néphrologie / Urologie"
+  },
+  {
+    "title": "CAT devant un phlegmon",
+    "sourceSection": "Chirurgie — Admission — Urgences",
+    "id": "course-361",
+    "system": "Traumatologie / Orthopédie"
+  },
+  {
+    "title": "CAT devant une entorse de la cheville",
+    "sourceSection": "Chirurgie — Admission — Urgences",
+    "id": "course-362",
+    "system": "Traumatologie / Orthopédie"
+  },
+  {
+    "title": "Traumatisme des nerfs périphériques",
+    "sourceSection": "Chirurgie — Admission — Urgences",
+    "id": "course-363",
+    "system": "Traumatologie / Orthopédie"
+  },
+  {
+    "title": "Fracture supra-condylienne de l'enfant",
+    "sourceSection": "Chirurgie — Admission — Urgences",
+    "id": "course-364",
+    "system": "Traumatologie / Orthopédie"
+  },
+  {
+    "title": "CAT devant un écrasement des membres",
+    "sourceSection": "Chirurgie — Admission — Urgences",
+    "id": "course-365",
+    "system": "Traumatologie / Orthopédie"
+  },
+  {
+    "title": "Luxation de la hanche",
+    "sourceSection": "Chirurgie — Admission — Urgences",
+    "id": "course-366",
+    "system": "Traumatologie / Orthopédie"
+  },
+  {
+    "title": "Fracture de pouteau-colles",
+    "sourceSection": "Chirurgie — Admission — Urgences",
+    "id": "course-367",
+    "system": "Traumatologie / Orthopédie"
+  },
+  {
+    "title": "CAT devant un syndrome de Volkman",
+    "sourceSection": "Chirurgie — Admission — Urgences",
+    "id": "course-368",
+    "system": "Traumatologie / Orthopédie"
+  },
+  {
+    "title": "CAT devant une Fr ouverte de la jambe",
+    "sourceSection": "Chirurgie — Admission — Urgences",
+    "id": "course-369",
+    "system": "Traumatologie / Orthopédie"
+  },
+  {
+    "title": "CAT devant une plaie articulaire",
+    "sourceSection": "Chirurgie — Admission — Urgences",
+    "id": "course-370",
+    "system": "Traumatologie / Orthopédie"
+  },
+  {
+    "title": "Luxation de l'épaule",
+    "sourceSection": "Chirurgie — Admission — Urgences",
+    "id": "course-371",
+    "system": "Traumatologie / Orthopédie"
+  },
+  {
+    "title": "Ostéomyélite",
+    "sourceSection": "Chirurgie — Admission — Urgences",
+    "id": "course-372",
+    "system": "Traumatologie / Orthopédie"
+  },
+  {
+    "title": "CAT devant une plaie de la main",
+    "sourceSection": "Chirurgie — Admission — Urgences",
+    "id": "course-373",
+    "system": "Traumatologie / Orthopédie"
+  },
+  {
+    "title": "CAT devant un panaris",
+    "sourceSection": "Chirurgie — Admission — Urgences",
+    "id": "course-374",
+    "system": "Traumatologie / Orthopédie"
+  },
+  {
+    "title": "Appendicite aigue",
+    "sourceSection": "Chirurgie — Admission — Urgences",
+    "id": "course-375",
+    "system": "Digestif / Hépato-pancréatique"
+  },
+  {
+    "title": "CAT devant une oesophagite caustique",
+    "sourceSection": "Chirurgie — Admission — Urgences",
+    "id": "course-376",
+    "system": "Digestif / Hépato-pancréatique"
+  },
+  {
+    "title": "Rupture diaphragmatique",
+    "sourceSection": "Chirurgie — Admission — Urgences",
+    "id": "course-377",
+    "system": "Digestif / Hépato-pancréatique"
+  },
+  {
+    "title": "CAT devant une contusion abdominale",
+    "sourceSection": "Chirurgie — Admission — Urgences",
+    "id": "course-378",
+    "system": "Digestif / Hépato-pancréatique"
+  },
+  {
+    "title": "CAT devant une pancréatite aigue",
+    "sourceSection": "Chirurgie — Admission — Urgences",
+    "id": "course-379",
+    "system": "Digestif / Hépato-pancréatique"
+  },
+  {
+    "title": "Invagination intestinale aigue",
+    "sourceSection": "Chirurgie — Admission — Urgences",
+    "id": "course-380",
+    "system": "Digestif / Hépato-pancréatique"
+  },
+  {
+    "title": "CAT devant une occlusion intestinale aigue",
+    "sourceSection": "Chirurgie — Admission — Urgences",
+    "id": "course-381",
+    "system": "Digestif / Hépato-pancréatique"
+  },
+  {
+    "title": "ABCES du foie ++ better",
+    "sourceSection": "Chirurgie — Admission — Urgences",
+    "id": "course-382",
+    "system": "Digestif / Hépato-pancréatique"
+  },
+  {
+    "title": "Abcès hépatique",
+    "sourceSection": "Chirurgie — Admission — Urgences",
+    "id": "course-383",
+    "system": "Digestif / Hépato-pancréatique"
+  },
+  {
+    "title": "Volvulus du sigmoïde",
+    "sourceSection": "Chirurgie — Admission — Urgences",
+    "id": "course-384",
+    "system": "Digestif / Hépato-pancréatique"
+  },
+  {
+    "title": "Angiocholite",
+    "sourceSection": "Chirurgie — Admission — Urgences",
+    "id": "course-385",
+    "system": "Digestif / Hépato-pancréatique"
+  },
+  {
+    "title": "CAT devant péritonite",
+    "sourceSection": "Chirurgie — Admission — Urgences",
+    "id": "course-386",
+    "system": "Digestif / Hépato-pancréatique"
+  },
+  {
+    "title": "Hernie étranglée",
+    "sourceSection": "Chirurgie — Admission — Urgences",
+    "id": "course-387",
+    "system": "Digestif / Hépato-pancréatique"
+  },
+  {
+    "title": "Appendicite",
+    "sourceSection": "Chirurgie — Admission — Urgences",
+    "id": "course-388",
+    "system": "Digestif / Hépato-pancréatique"
+  },
+  {
+    "title": "Torsion du cordon spermatique +++(mounib)",
+    "sourceSection": "Chirurgie — Admission — Urgences",
+    "id": "course-389",
+    "system": "Néphrologie / Urologie"
+  },
+  {
+    "title": "CAT devant une rétention aigue des urines +++ (me)",
+    "sourceSection": "Chirurgie — Admission — Urgences",
+    "id": "course-390",
+    "system": "Néphrologie / Urologie"
+  },
+  {
+    "title": "Rupture traumatique de l'urètre (mounib)",
+    "sourceSection": "Chirurgie — Admission — Urgences",
+    "id": "course-391",
+    "system": "Néphrologie / Urologie"
+  },
+  {
+    "title": "CAT devant un traumatisme du rein (mounib)",
+    "sourceSection": "Chirurgie — Admission — Urgences",
+    "id": "course-392",
+    "system": "Néphrologie / Urologie"
+  },
+  {
+    "title": "CAT devant kyste de l'ovaire compliqué",
+    "sourceSection": "Chirurgie — Admission — Urgences",
+    "id": "course-393",
+    "system": "Gynécologie / Obstétrique"
+  },
+  {
+    "title": "Eclampsie",
+    "sourceSection": "Chirurgie — Admission — Urgences",
+    "id": "course-394",
+    "system": "Gynécologie / Obstétrique"
+  },
+  {
+    "title": "Rupture utérine",
+    "sourceSection": "Chirurgie — Admission — Urgences",
+    "id": "course-395",
+    "system": "Gynécologie / Obstétrique"
+  },
+  {
+    "title": "Grossesse extra-utérine",
+    "sourceSection": "Chirurgie — Admission — Urgences",
+    "id": "course-396",
+    "system": "Gynécologie / Obstétrique"
+  },
+  {
+    "title": "CAT devant une hémorragie génitale hors grossesse",
+    "sourceSection": "Chirurgie — Admission — Urgences",
+    "id": "course-397",
+    "system": "Gynécologie / Obstétrique"
+  },
+  {
+    "title": "CAT devant un fibrome utérin compliqué",
+    "sourceSection": "Chirurgie — Admission — Urgences",
+    "id": "course-398",
+    "system": "Gynécologie / Obstétrique"
+  },
+  {
+    "title": "CAT devant un avortement",
+    "sourceSection": "Chirurgie — Admission — Urgences",
+    "id": "course-399",
+    "system": "Gynécologie / Obstétrique"
+  },
+  {
+    "title": "CAT devant une toxémie gravidique",
+    "sourceSection": "Chirurgie — Admission — Urgences",
+    "id": "course-400",
+    "system": "Gynécologie / Obstétrique"
+  },
+  {
+    "title": "Hématome extra-dural",
+    "sourceSection": "Chirurgie — Admission — Urgences",
+    "id": "course-401",
+    "system": "Neurologie / Neurochirurgie"
+  },
+  {
+    "title": "CAT devant une compression médullaire",
+    "sourceSection": "Chirurgie — Admission — Urgences",
+    "id": "course-402",
+    "system": "Neurologie / Neurochirurgie"
+  },
+  {
+    "title": "CAT devant une hémorragie méningée",
+    "sourceSection": "Chirurgie — Admission — Urgences",
+    "id": "course-403",
+    "system": "Neurologie / Neurochirurgie"
+  },
+  {
+    "title": "plaie cranio-cérébrale",
+    "sourceSection": "Chirurgie — Admission — Urgences",
+    "id": "course-404",
+    "system": "Neurologie / Neurochirurgie"
+  },
+  {
+    "title": "CAT devant un polytraumatisme",
+    "sourceSection": "Chirurgie — Admission — Urgences",
+    "id": "course-405",
+    "system": "Neurologie / Neurochirurgie"
+  },
+  {
+    "title": "Traumatisme vasculaire des membres",
+    "sourceSection": "Chirurgie — Admission — Urgences",
+    "id": "course-406",
+    "system": "Cardiovasculaire"
+  },
+  {
+    "title": "Ischémie aigue des MI",
+    "sourceSection": "Chirurgie — Admission — Urgences",
+    "id": "course-407",
+    "system": "Cardiovasculaire"
+  },
+  {
+    "title": "CAT devant un traumatisme du thorax (Mounib is better)",
+    "sourceSection": "Chirurgie — Admission — Urgences",
+    "id": "course-408",
+    "system": "Pneumologie / Thorax"
+  },
+  {
+    "title": "Glaucome à angle fermé",
+    "sourceSection": "Chirurgie — Admission — Urgences",
+    "id": "course-409",
+    "system": "ORL / Ophtalmologie"
+  },
+  {
+    "title": "Trachéotomie",
+    "sourceSection": "Chirurgie — Admission — Urgences",
+    "id": "course-410",
+    "system": "ORL / Ophtalmologie"
+  },
+  {
+    "title": "CAT devant un érythème noueux",
+    "sourceSection": "Médecine — Admission — Urgences",
+    "id": "course-411",
+    "system": "Dermatologie"
+  },
+  {
+    "title": "Méningites purulentes",
+    "sourceSection": "Médecine — Admission — Urgences",
+    "id": "course-412",
+    "system": "Infectiologie"
+  },
+  {
+    "title": "CAT devant un syndrome méningé",
+    "sourceSection": "Médecine — Admission — Urgences",
+    "id": "course-413",
+    "system": "Infectiologie"
+  },
+  {
+    "title": "Tétanos",
+    "sourceSection": "Médecine — Admission — Urgences",
+    "id": "course-414",
+    "system": "Infectiologie"
+  },
+  {
+    "title": "CAT devant une méningite à liquide clair",
+    "sourceSection": "Médecine — Admission — Urgences",
+    "id": "course-415",
+    "system": "Infectiologie"
+  },
+  {
+    "title": "CAT devant un accident transfusionnel",
+    "sourceSection": "Médecine — Admission — Urgences",
+    "id": "course-416",
+    "system": "Hématologie / Immunologie"
+  },
+  {
+    "title": "CAT devant un oeil rouge",
+    "sourceSection": "Médecine — Admission — Urgences",
+    "id": "course-417",
+    "system": "ORL / Ophtalmologie"
+  },
+  {
+    "title": "CAT devant une agitation (Belmejjad)",
+    "sourceSection": "Médecine — Admission — Urgences",
+    "id": "course-418",
+    "system": "Psychiatrie"
+  },
+  {
+    "title": "Conduites suicidaires (Belmejjad)",
+    "sourceSection": "Médecine — Admission — Urgences",
+    "id": "course-419",
+    "system": "Psychiatrie"
+  },
+  {
+    "title": "Confusions mentales (Belmejjad)",
+    "sourceSection": "Médecine — Admission — Urgences",
+    "id": "course-420",
+    "system": "Psychiatrie"
+  },
+  {
+    "title": "CAT devant une morsure, griffure",
+    "sourceSection": "Médecine — Admission — Urgences",
+    "id": "course-421",
+    "system": "Autres / À classer"
+  },
+  {
+    "title": "CAT devant une noyade (Rabat)",
+    "sourceSection": "Médecine — Admission — Urgences",
+    "id": "course-422",
+    "system": "Autres / À classer"
+  },
+  {
+    "title": "L'embolie pulmonaire +++ (Achraf)",
+    "sourceSection": "Médecine — Admission — Urgences",
+    "id": "course-423",
+    "system": "Cardiovasculaire"
+  },
+  {
+    "title": "OAP",
+    "sourceSection": "Médecine — Admission — Urgences",
+    "id": "course-424",
+    "system": "Cardiovasculaire"
+  },
+  {
+    "title": "Tamponnade",
+    "sourceSection": "Médecine — Admission — Urgences",
+    "id": "course-425",
+    "system": "Cardiovasculaire"
+  },
+  {
+    "title": "CAT devant une thrombose veineuse aigue ++ (Achraf)",
+    "sourceSection": "Médecine — Admission — Urgences",
+    "id": "course-426",
+    "system": "Cardiovasculaire"
+  },
+  {
+    "title": "CAT devant un état de choc + (Achraf)",
+    "sourceSection": "Médecine — Admission — Urgences",
+    "id": "course-427",
+    "system": "Cardiovasculaire"
+  },
+  {
+    "title": "IDM (Achraf)",
+    "sourceSection": "Médecine — Admission — Urgences",
+    "id": "course-428",
+    "system": "Cardiovasculaire"
+  },
+  {
+    "title": "Urgence hypertensive (Achraf)",
+    "sourceSection": "Médecine — Admission — Urgences",
+    "id": "course-429",
+    "system": "Cardiovasculaire"
+  },
+  {
+    "title": "Arret cardiaque (Achraf)",
+    "sourceSection": "Médecine — Admission — Urgences",
+    "id": "course-430",
+    "system": "Cardiovasculaire"
+  },
+  {
+    "title": "CAT devant une CIVD (Achraf)",
+    "sourceSection": "Médecine — Admission — Urgences",
+    "id": "course-431",
+    "system": "Cardiovasculaire"
+  },
+  {
+    "title": "CAT devant une pleurésie (surtout la pleurésie séro-fibrineuse=jaune citrin)",
+    "sourceSection": "Médecine — Admission — Urgences",
+    "id": "course-432",
+    "system": "Pneumologie / Thorax"
+  },
+  {
+    "title": "CAT devant l'embolie pulmonaire",
+    "sourceSection": "Médecine — Admission — Urgences",
+    "id": "course-433",
+    "system": "Pneumologie / Thorax"
+  },
+  {
+    "title": "Miliaire tuberculeuse",
+    "sourceSection": "Médecine — Admission — Urgences",
+    "id": "course-434",
+    "system": "Pneumologie / Thorax"
+  },
+  {
+    "title": "Pneumothorax",
+    "sourceSection": "Médecine — Admission — Urgences",
+    "id": "course-435",
+    "system": "Pneumologie / Thorax"
+  },
+  {
+    "title": "Abcès pulmonaire",
+    "sourceSection": "Médecine — Admission — Urgences",
+    "id": "course-436",
+    "system": "Pneumologie / Thorax"
+  },
+  {
+    "title": "Asthme aigue grave",
+    "sourceSection": "Médecine — Admission — Urgences",
+    "id": "course-437",
+    "system": "Pneumologie / Thorax"
+  },
+  {
+    "title": "Insuffisance surrénalienne aigue",
+    "sourceSection": "Médecine — Admission — Urgences",
+    "id": "course-438",
+    "system": "Endocrinologie / Métabolisme"
+  },
+  {
+    "title": "CAT devant une hypocalcémie",
+    "sourceSection": "Médecine — Admission — Urgences",
+    "id": "course-439",
+    "system": "Endocrinologie / Métabolisme"
+  },
+  {
+    "title": "Acidocétose diabètique",
+    "sourceSection": "Médecine — Admission — Urgences",
+    "id": "course-440",
+    "system": "Endocrinologie / Métabolisme"
+  },
+  {
+    "title": "hypoglycémie",
+    "sourceSection": "Médecine — Admission — Urgences",
+    "id": "course-441",
+    "system": "Endocrinologie / Métabolisme"
+  },
+  {
+    "title": "CAT devant une ascite",
+    "sourceSection": "Médecine — Admission — Urgences",
+    "id": "course-442",
+    "system": "Digestif / Hépato-pancréatique"
+  },
+  {
+    "title": "CAT devant diarrhée chronique",
+    "sourceSection": "Médecine — Admission — Urgences",
+    "id": "course-443",
+    "system": "Digestif / Hépato-pancréatique"
+  },
+  {
+    "title": "CAT devant un ictère",
+    "sourceSection": "Médecine — Admission — Urgences",
+    "id": "course-444",
+    "system": "Digestif / Hépato-pancréatique"
+  },
+  {
+    "title": "CAT devant diarrhée aigue",
+    "sourceSection": "Médecine — Admission — Urgences",
+    "id": "course-445",
+    "system": "Digestif / Hépato-pancréatique"
+  },
+  {
+    "title": "CAT devant une insuffisance hépatocellulaire aigue",
+    "sourceSection": "Médecine — Admission — Urgences",
+    "id": "course-446",
+    "system": "Digestif / Hépato-pancréatique"
+  },
+  {
+    "title": "CAT devant vomissement du nourrisson",
+    "sourceSection": "Médecine — Admission — Urgences",
+    "id": "course-447",
+    "system": "Pédiatrie / Néonatologie"
+  },
+  {
+    "title": "Détresse respiratoire néonatale",
+    "sourceSection": "Médecine — Admission — Urgences",
+    "id": "course-448",
+    "system": "Pédiatrie / Néonatologie"
+  },
+  {
+    "title": "Dyspnée laryngée obstructive du nourrisson",
+    "sourceSection": "Médecine — Admission — Urgences",
+    "id": "course-449",
+    "system": "Pédiatrie / Néonatologie"
+  },
+  {
+    "title": "Ictère néonatal",
+    "sourceSection": "Médecine — Admission — Urgences",
+    "id": "course-450",
+    "system": "Pédiatrie / Néonatologie"
+  },
+  {
+    "title": "Méningites purulentes du nourisson",
+    "sourceSection": "Médecine — Admission — Urgences",
+    "id": "course-451",
+    "system": "Pédiatrie / Néonatologie"
+  },
+  {
+    "title": "CAT devant diarhées aigues du nourrison",
+    "sourceSection": "Médecine — Admission — Urgences",
+    "id": "course-452",
+    "system": "Pédiatrie / Néonatologie"
+  },
+  {
+    "title": "Purpura fulminans de l'enfant",
+    "sourceSection": "Médecine — Admission — Urgences",
+    "id": "course-453",
+    "system": "Pédiatrie / Néonatologie"
+  },
+  {
+    "title": "CAT devant cyanose néonatale",
+    "sourceSection": "Médecine — Admission — Urgences",
+    "id": "course-454",
+    "system": "Pédiatrie / Néonatologie"
+  },
+  {
+    "title": "CAT devant une fièvre aigue du nourrisson",
+    "sourceSection": "Médecine — Admission — Urgences",
+    "id": "course-455",
+    "system": "Pédiatrie / Néonatologie"
+  },
+  {
+    "title": "Bronchiolite aigue du nourrisson",
+    "sourceSection": "Médecine — Admission — Urgences",
+    "id": "course-456",
+    "system": "Pédiatrie / Néonatologie"
+  },
+  {
+    "title": "Convulsions fébriles du nourrisson",
+    "sourceSection": "Médecine — Admission — Urgences",
+    "id": "course-457",
+    "system": "Pédiatrie / Néonatologie"
+  },
+  {
+    "title": "CAT devant deshydratation aigue du nourrisson",
+    "sourceSection": "Médecine — Admission — Urgences",
+    "id": "course-458",
+    "system": "Pédiatrie / Néonatologie"
+  },
+  {
+    "title": "CAT devant un syndrome hémorragique du nouveau-né",
+    "sourceSection": "Médecine — Admission — Urgences",
+    "id": "course-459",
+    "system": "Pédiatrie / Néonatologie"
+  },
+  {
+    "title": "CAT devant une insuffisance cardiaque du nourrisson",
+    "sourceSection": "Médecine — Admission — Urgences",
+    "id": "course-460",
+    "system": "Pédiatrie / Néonatologie"
+  },
+  {
+    "title": "Eclampsie",
+    "sourceSection": "Médecine — Admission — Urgences",
+    "id": "course-461",
+    "system": "Autres / À classer"
+  },
+  {
+    "title": "CAT devant une toxémie gravidique",
+    "sourceSection": "Médecine — Admission — Urgences",
+    "id": "course-462",
+    "system": "Autres / À classer"
+  },
+  {
+    "title": "Arthrite septique",
+    "sourceSection": "Médecine — Admission — Urgences",
+    "id": "course-463",
+    "system": "Rhumatologie"
+  },
+  {
+    "title": "CAT devant un AVC",
+    "sourceSection": "Médecine — Admission — Urgences",
+    "id": "course-464",
+    "system": "Neurologie / Neurochirurgie"
+  },
+  {
+    "title": "CAT devant une compression médullaire",
+    "sourceSection": "Médecine — Admission — Urgences",
+    "id": "course-465",
+    "system": "Neurologie / Neurochirurgie"
+  },
+  {
+    "title": "CAT devant une HTIC",
+    "sourceSection": "Médecine — Admission — Urgences",
+    "id": "course-466",
+    "system": "Neurologie / Neurochirurgie"
+  },
+  {
+    "title": "IRA +++ (me)",
+    "sourceSection": "Médecine — Admission — Urgences",
+    "id": "course-467",
+    "system": "Néphrologie / Urologie"
+  },
+  {
+    "title": "Syndrome néphritique aigue ++ (ach)",
+    "sourceSection": "Médecine — Admission — Urgences",
+    "id": "course-468",
+    "system": "Néphrologie / Urologie"
+  }
+]
