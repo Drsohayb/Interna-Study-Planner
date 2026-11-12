@@ -8,6 +8,7 @@ import {
   Download,
   LayoutDashboard,
   Plus,
+  RotateCcw,
   Search,
   Stethoscope,
   Trash2,
@@ -33,8 +34,6 @@ const stages = [
   { k: "J15", d: 15 },
   { k: "J30", d: 30 },
 ] as const;
-
-const MAX_NEW_COURSES_PER_DAY = 3;
 
 const todayISO = () => {
   const date = new Date();
@@ -95,6 +94,7 @@ const scheduledForDate = (courses: Course[], date: string) =>
       : [],
   );
 
+
 export default function App() {
   const [items, setItems] = useState<Course[]>(() => {
     try {
@@ -127,6 +127,20 @@ export default function App() {
   const [newSystem, setNewSystem] = useState("Anatomie générale / Régions");
   const [newSection, setNewSection] = useState("Anatomie — Admissibilité");
   const [notice, setNotice] = useState("");
+  const [dailyStartLimit, setDailyStartLimit] = useState<number | null>(() => {
+    try {
+      const saved = localStorage.getItem("interna-start-limit");
+      if (!saved || saved === "unlimited") return null;
+      const limit = Number(saved);
+      return Number.isInteger(limit) && limit > 0 ? limit : null;
+    } catch {
+      return null;
+    }
+  });
+  const [startDateDrafts, setStartDateDrafts] = useState<
+    Record<string, string>
+  >({});
+  const [calendarCourseId, setCalendarCourseId] = useState("");
   const [selectedDate, setSelectedDate] = useState(todayISO);
   const [visibleMonth, setVisibleMonth] = useState(() =>
     todayISO().slice(0, 7),
@@ -136,8 +150,21 @@ export default function App() {
     localStorage.setItem("interna-courses", JSON.stringify(items));
   }, [items]);
 
+  useEffect(() => {
+    try {
+      localStorage.setItem(
+        "interna-start-limit",
+        dailyStartLimit === null ? "unlimited" : String(dailyStartLimit),
+      );
+    } catch {
+      return;
+    }
+  }, [dailyStartLimit]);
+
   const today = todayISO();
   const startedToday = items.filter((course) => course.addedAt === today).length;
+  const reachedDailyLimit =
+    dailyStartLimit !== null && startedToday >= dailyStartLimit;
   const unstarted = items.filter((course) => !course.addedAt);
 
   const outstanding = items.flatMap((course) =>
@@ -207,6 +234,50 @@ export default function App() {
     URL.revokeObjectURL(url);
   };
 
+  const resetProgress = () => {
+  if (
+    !window.confirm(
+      "Réinitialiser toute la progression ? Tous les cours redeviendront non commencés et toutes les révisions seront effacées. Les cours de la bibliothèque seront conservés."
+    )
+  ) {
+    return;
+  }
+
+  setItems(current =>
+    current.map(course => ({
+      ...course,
+      addedAt: "",
+      checks: {},
+    }))
+  );
+
+  setStartDateDrafts({});
+  setCalendarCourseId("");
+  setDailyStartLimit(null);
+
+  setNotice(
+    "Toute la progression a été réinitialisée. Tous les cours sont de nouveau disponibles."
+  );
+};
+
+  
+
+  const resetCourseStart = (id: string) => {
+    if (!window.confirm(
+      "Annuler le démarrage de ce cours ? Toutes ses révisions cochées seront également effacées."
+    )) return;
+
+    setItems(current =>
+      current.map(course =>
+        course.id === id
+          ? { ...course, addedAt: "", checks: {} }
+          : course
+      )
+    );
+
+    setNotice("Le cours est revenu dans la bibliothèque.");
+  };
+
   const importData = (file?: File) => {
     if (!file) return;
     const reader = new FileReader();
@@ -239,26 +310,60 @@ export default function App() {
     reader.readAsText(file);
   };
 
-  const startCourse = (id: string) => {
-    if (startedToday >= MAX_NEW_COURSES_PER_DAY) {
+  const startCourse = (id: string, startDate = today) => {
+    if (startDate === today && reachedDailyLimit) {
       setNotice(
-        "La limite de 3 nouveaux cours commencés est atteinte pour aujourd’hui.",
+        "La limite quotidienne est atteinte. Augmente-la ou choisis une date d’étude antérieure.",
       );
       return;
     }
     setItems((current) =>
       current.map((course) =>
         course.id === id && !course.addedAt
-          ? { ...course, addedAt: today }
+          ? {
+              ...course,
+              addedAt: startDate,
+              checks:
+                startDate < today
+                  ? { ...course.checks, J0: true }
+                  : course.checks,
+            }
           : course,
       ),
     );
-    setNotice("");
+    setStartDateDrafts((current) => ({ ...current, [id]: startDate }));
+    setNotice(
+      startDate < today
+        ? `Cours marqué comme étudié le ${fmt(startDate)}. J0 est terminé et les révisions suivantes sont planifiées.`
+        : "",
+    );
+  };
+
+  const changeCourseStartDate = (id: string, startDate: string) => {
+    if (!startDate) return;
+    setItems((current) =>
+      current.map((course) =>
+        course.id === id
+          ? {
+              ...course,
+              addedAt: startDate,
+              checks:
+                startDate < today
+                  ? { ...course.checks, J0: true }
+                  : course.checks,
+            }
+          : course,
+      ),
+    );
+    setStartDateDrafts((current) => ({ ...current, [id]: startDate }));
+    setNotice(
+      `Révisions recalculées depuis le ${fmt(startDate)}. Les cases cochées sont conservées.`,
+    );
   };
 
   const add = () => {
     if (!newTitle.trim()) return;
-    const canStartToday = startedToday < MAX_NEW_COURSES_PER_DAY;
+    const canStartToday = !reachedDailyLimit;
     const newCourse: Course = {
       id: crypto.randomUUID(),
       title: newTitle.trim(),
@@ -367,6 +472,13 @@ export default function App() {
                 onChange={(event) => importData(event.target.files?.[0])}
               />
             </label>
+            <button
+              onClick={resetProgress}
+              className="field flex items-center gap-2 text-sm text-rose-700"
+            >
+              <RotateCcw size={16} />
+              Réinitialiser ma progression
+            </button>
           </div>
         </header>
 
@@ -480,32 +592,75 @@ export default function App() {
               <div className="flex flex-wrap items-start justify-between gap-3">
                 <div>
                   <h2 className="text-lg font-bold">
-                    Nouveaux cours commencés
+                    Démarrage des cours
                   </h2>
                   <p className="text-sm muted">
-                    Objectif quotidien : jusqu’à {MAX_NEW_COURSES_PER_DAY} cours.
+                    Choisis combien de nouveaux cours tu souhaites démarrer par jour.
                   </p>
                 </div>
                 <span className="pill">
-                  {startedToday} / {MAX_NEW_COURSES_PER_DAY} aujourd’hui
+                  {dailyStartLimit === null
+                    ? `${startedToday} commencés · sans limite`
+                    : `${startedToday} / ${dailyStartLimit} aujourd’hui`}
                 </span>
               </div>
-              <div className="mt-4 h-2 overflow-hidden rounded-full bg-[#e7eee8]">
-                <div
-                  className="h-full rounded-full bg-[#1e6248] transition-all"
-                  style={{
-                    width: `${Math.min(
-                      (startedToday / MAX_NEW_COURSES_PER_DAY) * 100,
-                      100,
-                    )}%`,
-                  }}
-                />
+              <div className="mt-4 flex flex-wrap items-end justify-between gap-3">
+                <label className="grid gap-1 text-sm">
+                  <span className="font-medium">Maximum par jour</span>
+                  <input
+                    className="field w-40"
+                    type="number"
+                    min="1"
+                    step="1"
+                    placeholder="Sans limite"
+                    value={dailyStartLimit ?? ""}
+                    onChange={(event) => {
+                      const value = event.target.value;
+                      if (!value) {
+                        setDailyStartLimit(null);
+                        return;
+                      }
+                      const limit = Number.parseInt(value, 10);
+                      if (Number.isFinite(limit)) {
+                        setDailyStartLimit(Math.max(1, limit));
+                      }
+                    }}
+                  />
+                </label>
+                {dailyStartLimit !== null ? (
+                  <button
+                    className="field text-sm"
+                    onClick={() => setDailyStartLimit(null)}
+                  >
+                    Retirer la limite
+                  </button>
+                ) : (
+                  <p className="text-sm muted">
+                    Aucune limite quotidienne. Saisis un nombre pour en définir une.
+                  </p>
+                )}
               </div>
-              <p className="mt-2 text-xs muted">
-                {startedToday >= MAX_NEW_COURSES_PER_DAY
-                  ? "Limite atteinte pour aujourd’hui. Les cours en attente restent disponibles demain."
-                  : `${MAX_NEW_COURSES_PER_DAY - startedToday} démarrage${MAX_NEW_COURSES_PER_DAY - startedToday > 1 ? "s" : ""} possible${MAX_NEW_COURSES_PER_DAY - startedToday > 1 ? "s" : ""} aujourd’hui.`}
-              </p>
+              {dailyStartLimit !== null && (
+                <div
+                  className="mt-3 h-2 overflow-hidden rounded-full bg-[#e7eee8]"
+                  aria-label={`${startedToday} cours commencés sur ${dailyStartLimit}`}
+                >
+                  <div
+                    className="h-full rounded-full bg-[#1e6248] transition-all"
+                    style={{
+                      width: `${Math.min(
+                        (startedToday / dailyStartLimit) * 100,
+                        100,
+                      )}%`,
+                    }}
+                  />
+                </div>
+              )}
+              {reachedDailyLimit && (
+                <p className="mt-2 text-xs text-amber-800">
+                  Limite atteinte pour aujourd’hui. Augmente-la ou retire-la pour continuer.
+                </p>
+              )}
 
               {unstarted.length > 0 && (
                 <div className="mt-4 divide-y">
@@ -520,7 +675,7 @@ export default function App() {
                       </div>
                       <button
                         onClick={() => startCourse(course.id)}
-                        disabled={startedToday >= MAX_NEW_COURSES_PER_DAY}
+                        disabled={reachedDailyLimit}
                         className="rounded-lg bg-[#e8f2eb] px-3 py-2 text-sm font-semibold text-[#205e45] disabled:cursor-not-allowed disabled:opacity-50"
                       >
                         Commencer · J0
@@ -687,6 +842,16 @@ export default function App() {
                     >
                       <div className="flex justify-between gap-2">
                         <div className="font-medium">{course.title}</div>
+                        {course.addedAt && (
+                          <button
+                            title="Annuler le démarrage"
+                            aria-label={`Annuler le démarrage de ${course.title}`}
+                            onClick={() => resetCourseStart(course.id)}
+                            className="text-amber-600"
+                          >
+                            <RotateCcw size={16} />
+                          </button>
+                        )}
                         {course.custom && (
                           <button
                             title="Supprimer"
@@ -708,45 +873,111 @@ export default function App() {
                       </div>
 
                       {!course.addedAt ? (
-                        <div className="mt-3 flex flex-wrap items-center gap-3">
-                          <span className="text-xs muted">
-                            Pas encore commencé — aucune révision programmée.
-                          </span>
+                        <div className="mt-3 flex flex-wrap items-end gap-3">
+                          <label className="grid gap-1 text-xs muted">
+                            Date d’étude initiale
+                            <input
+                              className="field text-sm"
+                              type="date"
+                              max={today}
+                              value={startDateDrafts[course.id] ?? today}
+                              onChange={(event) =>
+                                setStartDateDrafts((current) => ({
+                                  ...current,
+                                  [course.id]: event.target.value,
+                                }))
+                              }
+                            />
+                          </label>
                           <button
-                            onClick={() => startCourse(course.id)}
-                            disabled={startedToday >= MAX_NEW_COURSES_PER_DAY}
+                            onClick={() =>
+                              startCourse(
+                                course.id,
+                                startDateDrafts[course.id] ?? today,
+                              )
+                            }
+                            disabled={
+                              (startDateDrafts[course.id] ?? today) === today &&
+                              reachedDailyLimit
+                            }
                             className="rounded-lg bg-[#e8f2eb] px-3 py-2 text-sm font-semibold text-[#205e45] disabled:cursor-not-allowed disabled:opacity-50"
                           >
-                            Commencer · J0 aujourd’hui
+                            Planifier les révisions
                           </button>
+                          <span className="w-full text-xs muted">
+                            Pour un cours déjà étudié, choisis sa date passée.
+                            J0 sera terminé et les révisions suivantes seront calculées depuis ce jour.
+                          </span>
                         </div>
                       ) : (
-                        <div className="mt-3 grid grid-cols-3 gap-2 sm:grid-cols-6">
-                          {stages.map((stage) => {
-                            const dueDate = plus(course.addedAt, stage.d);
-                            const isDone = !!course.checks[stage.k];
+                        <>
+                          <div className="mt-3 grid grid-cols-3 gap-2 sm:grid-cols-6">
+                            {stages.map((stage) => {
+                              const dueDate = plus(course.addedAt, stage.d);
+                              const isDone = !!course.checks[stage.k];
 
-                            return (
-                              <label
-                                key={stage.k}
-                                className={`day cursor-pointer ${isDone ? "done" : ""}`}
-                              >
+                              return (
+                                <label
+                                  key={stage.k}
+                                  className={`day cursor-pointer ${isDone ? "done" : ""}`}
+                                >
+                                  <input
+                                    className="check"
+                                    type="checkbox"
+                                    checked={isDone}
+                                    onChange={() => toggle(course.id, stage.k)}
+                                  />
+                                  <div className="mt-1 text-sm font-bold">
+                                    {stage.k}
+                                  </div>
+                                  <div className="text-[10px] muted">
+                                    {fmt(dueDate)}
+                                  </div>
+                                </label>
+                              );
+                            })}
+                          </div>
+                          <details className="mt-3 rounded-xl bg-[#f7f9f7] px-3">
+                            <summary className="cursor-pointer py-3 text-sm font-semibold text-[#205e45]">
+                              Modifier la date d’étude initiale
+                            </summary>
+                            <div className="flex flex-wrap items-end gap-3 pb-3">
+                              <label className="grid gap-1 text-xs muted">
+                                Nouvelle date
                                 <input
-                                  className="check"
-                                  type="checkbox"
-                                  checked={isDone}
-                                  onChange={() => toggle(course.id, stage.k)}
+                                  className="field text-sm"
+                                  type="date"
+                                  max={today}
+                                  value={
+                                    startDateDrafts[course.id] ??
+                                    course.addedAt
+                                  }
+                                  onChange={(event) =>
+                                    setStartDateDrafts((current) => ({
+                                      ...current,
+                                      [course.id]: event.target.value,
+                                    }))
+                                  }
                                 />
-                                <div className="mt-1 text-sm font-bold">
-                                  {stage.k}
-                                </div>
-                                <div className="text-[10px] muted">
-                                  {fmt(dueDate)}
-                                </div>
                               </label>
-                            );
-                          })}
-                        </div>
+                              <button
+                                onClick={() =>
+                                  changeCourseStartDate(
+                                    course.id,
+                                    startDateDrafts[course.id] ??
+                                      course.addedAt,
+                                  )
+                                }
+                                className="rounded-lg bg-[#e8f2eb] px-3 py-2 text-sm font-semibold text-[#205e45]"
+                              >
+                                Recalculer les révisions
+                              </button>
+                              <span className="text-xs muted">
+                                Les cases déjà cochées seront conservées.
+                              </span>
+                            </div>
+                          </details>
+                        </>
                       )}
                     </div>
                   ))}
@@ -913,6 +1144,58 @@ export default function App() {
                   sur {selectedDayItems.length} terminées
                 </div>
               )}
+              <div className="mt-5 border-t border-[#edf0ed] pt-4">
+                <h3 className="font-semibold">
+                  Un cours a été étudié à cette date ?
+                </h3>
+                <p className="mt-1 text-sm muted">
+                  Choisis un cours pas encore commencé pour créer son J0 ici et
+                  calculer les révisions suivantes depuis cette date. Si la
+                  date est passée, J0 sera marqué comme terminé.
+                </p>
+                {unstarted.length > 0 ? (
+                  <div className="mt-3 flex flex-wrap items-center gap-2">
+                    <select
+                      className="field min-w-0 flex-1"
+                      value={calendarCourseId}
+                      onChange={(event) =>
+                        setCalendarCourseId(event.target.value)
+                      }
+                    >
+                      <option value="">Choisir un cours</option>
+                      {unstarted.map((course) => (
+                        <option key={course.id} value={course.id}>
+                          {course.title}
+                        </option>
+                      ))}
+                    </select>
+                    <button
+                      onClick={() => {
+                        startCourse(calendarCourseId, selectedDate);
+                        setCalendarCourseId("");
+                      }}
+                      disabled={
+                        !calendarCourseId ||
+                        selectedDate > today ||
+                        (selectedDate === today && reachedDailyLimit)
+                      }
+                      className="rounded-lg bg-[#1e6248] px-3 py-2 text-sm font-semibold text-white disabled:cursor-not-allowed disabled:opacity-50"
+                    >
+                      Planifier depuis cette date
+                    </button>
+                  </div>
+                ) : (
+                  <p className="mt-3 text-sm muted">
+                    Tous les cours ont déjà une date d’étude.
+                  </p>
+                )}
+                {selectedDate > today && (
+                  <p className="mt-2 text-xs text-amber-800">
+                    Choisis une date passée ou aujourd’hui pour enregistrer un
+                    cours déjà étudié.
+                  </p>
+                )}
+              </div>
             </section>
           </div>
         )}
