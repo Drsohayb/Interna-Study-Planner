@@ -162,7 +162,7 @@ export default function App() {
   }, [dailyStartLimit]);
 
   const today = todayISO();
-  const startedToday = items.filter((course) => course.addedAt === today).length;
+  const startedToday = items.filter((course) => course.addedAt === today && course.checks.J0 ).length;
   const reachedDailyLimit =
     dailyStartLimit !== null && startedToday >= dailyStartLimit;
   const unstarted = items.filter((course) => !course.addedAt);
@@ -183,13 +183,22 @@ export default function App() {
   const overdue = outstanding.filter((entry) => entry.date < today);
   const dueToday = outstanding.filter((entry) => entry.date === today);
 
-  const total = items.length * stages.length;
-  const done = items.reduce(
-    (count, course) =>
-      count + stages.filter((stage) => course.checks[stage.k]).length,
-    0,
-  );
+  const startedCourses = items.filter(
+    (course) => course.addedAt && course.checks.J0
+  ).length;
 
+  const totalCourses = items.length;
+
+  const totalRevisions = items.length * (stages.length - 1);
+
+  const completedRevisions = items.reduce(
+    (count, course) =>
+      count +
+      stages
+        .filter((stage) => stage.d > 0 && course.checks[stage.k])
+        .length,
+    0
+  );
   const systems = useMemo(
     () => [
       "Tous les systèmes",
@@ -482,28 +491,34 @@ export default function App() {
           </div>
         </header>
 
+
+
         <div className="mb-6 grid grid-cols-2 gap-3 xl:grid-cols-4">
           {stat(
             "Cours dans ta bibliothèque",
             String(items.length),
-            `${items.filter((course) => course.addedAt).length} commencés`,
+            `${startedCourses} commencés`
           )}
+
+          {stat(
+            "Cours commencés",
+            `${totalCourses ? Math.round((startedCourses / totalCourses) * 100) : 0}% `,
+            `${startedCourses} / ${totalCourses} du programme`
+          )}
+
+          {stat(
+            "Révisions terminées",
+            `${totalRevisions ? Math.round((completedRevisions / totalRevisions) * 100) : 0}%`,
+            `${completedRevisions} / ${totalRevisions} des révisions`
+          )}
+
           {stat(
             "Révisions restantes",
             String(outstanding.length),
-            `${overdue.length} en retard · ${dueToday.length} aujourd’hui`,
-          )}
-          {stat(
-            "Révisions terminées",
-            String(done),
-            `sur ${total} étapes planifiées`,
-          )}
-          {stat(
-            "Progression globale",
-            total ? `${Math.round((done / total) * 100)}%` : "0%",
-            "Checklist J0 à J30",
+            `${overdue.length} en retard · ${dueToday.length} aujourd'hui`
           )}
         </div>
+        
 
         {notice && (
           <div
@@ -879,7 +894,6 @@ export default function App() {
                             <input
                               className="field text-sm"
                               type="date"
-                              max={today}
                               value={startDateDrafts[course.id] ?? today}
                               onChange={(event) =>
                                 setStartDateDrafts((current) => ({
@@ -1176,7 +1190,6 @@ export default function App() {
                       }}
                       disabled={
                         !calendarCourseId ||
-                        selectedDate > today ||
                         (selectedDate === today && reachedDailyLimit)
                       }
                       className="rounded-lg bg-[#1e6248] px-3 py-2 text-sm font-semibold text-white disabled:cursor-not-allowed disabled:opacity-50"
@@ -1189,12 +1202,7 @@ export default function App() {
                     Tous les cours ont déjà une date d’étude.
                   </p>
                 )}
-                {selectedDate > today && (
-                  <p className="mt-2 text-xs text-amber-800">
-                    Choisis une date passée ou aujourd’hui pour enregistrer un
-                    cours déjà étudié.
-                  </p>
-                )}
+                
               </div>
             </section>
           </div>
