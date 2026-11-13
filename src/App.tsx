@@ -89,8 +89,8 @@ const scheduledForDate = (courses: Course[], date: string) =>
   courses.flatMap((course) =>
     course.addedAt
       ? stages
-          .filter((stage) => plus(course.addedAt, stage.d) === date)
-          .map((stage) => ({ course, stage }))
+        .filter((stage) => plus(course.addedAt, stage.d) === date)
+        .map((stage) => ({ course, stage }))
       : [],
   );
 
@@ -162,7 +162,7 @@ export default function App() {
   }, [dailyStartLimit]);
 
   const today = todayISO();
-  const startedToday = items.filter((course) => course.addedAt === today && course.checks.J0 ).length;
+  const startedToday = items.filter((course) => course.addedAt === today && course.checks.J0).length;
   const reachedDailyLimit =
     dailyStartLimit !== null && startedToday >= dailyStartLimit;
   const unstarted = items.filter((course) => !course.addedAt);
@@ -170,14 +170,14 @@ export default function App() {
   const outstanding = items.flatMap((course) =>
     course.addedAt
       ? stages
-          .map((stage) => ({
-            course,
-            stage,
-            date: plus(course.addedAt, stage.d),
-          }))
-          .filter(
-            (entry) => entry.date <= today && !course.checks[entry.stage.k],
-          )
+        .map((stage) => ({
+          course,
+          stage,
+          date: plus(course.addedAt, stage.d),
+        }))
+        .filter(
+          (entry) => entry.date <= today && !course.checks[entry.stage.k],
+        )
       : [],
   );
   const overdue = outstanding.filter((entry) => entry.date < today);
@@ -220,12 +220,12 @@ export default function App() {
       current.map((course) =>
         course.id === id
           ? {
-              ...course,
-              checks: {
-                ...course.checks,
-                [stageKey]: !course.checks[stageKey],
-              },
-            }
+            ...course,
+            checks: {
+              ...course.checks,
+              [stageKey]: !course.checks[stageKey],
+            },
+          }
           : course,
       ),
     );
@@ -244,32 +244,32 @@ export default function App() {
   };
 
   const resetProgress = () => {
-  if (
-    !window.confirm(
-      "Réinitialiser toute la progression ? Tous les cours redeviendront non commencés et toutes les révisions seront effacées. Les cours de la bibliothèque seront conservés."
-    )
-  ) {
-    return;
-  }
+    if (
+      !window.confirm(
+        "Réinitialiser toute la progression ? Tous les cours redeviendront non commencés et toutes les révisions seront effacées. Les cours de la bibliothèque seront conservés."
+      )
+    ) {
+      return;
+    }
 
-  setItems(current =>
-    current.map(course => ({
-      ...course,
-      addedAt: "",
-      checks: {},
-    }))
-  );
+    setItems(current =>
+      current.map(course => ({
+        ...course,
+        addedAt: "",
+        checks: {},
+      }))
+    );
 
-  setStartDateDrafts({});
-  setCalendarCourseId("");
-  setDailyStartLimit(null);
+    setStartDateDrafts({});
+    setCalendarCourseId("");
+    setDailyStartLimit(null);
 
-  setNotice(
-    "Toute la progression a été réinitialisée. Tous les cours sont de nouveau disponibles."
-  );
-};
+    setNotice(
+      "Toute la progression a été réinitialisée. Tous les cours sont de nouveau disponibles."
+    );
+  };
 
-  
+
 
   const resetCourseStart = (id: string) => {
     if (!window.confirm(
@@ -330,13 +330,13 @@ export default function App() {
       current.map((course) =>
         course.id === id && !course.addedAt
           ? {
-              ...course,
-              addedAt: startDate,
-              checks:
-                startDate < today
-                  ? { ...course.checks, J0: true }
-                  : course.checks,
-            }
+            ...course,
+            addedAt: startDate,
+            checks:
+              startDate < today
+                ? { ...course.checks, J0: true }
+                : course.checks,
+          }
           : course,
       ),
     );
@@ -354,13 +354,13 @@ export default function App() {
       current.map((course) =>
         course.id === id
           ? {
-              ...course,
-              addedAt: startDate,
-              checks:
-                startDate < today
-                  ? { ...course.checks, J0: true }
-                  : course.checks,
-            }
+            ...course,
+            addedAt: startDate,
+            checks:
+              startDate < today
+                ? { ...course.checks, J0: true }
+                : course.checks,
+          }
           : course,
       ),
     );
@@ -518,7 +518,7 @@ export default function App() {
             `${overdue.length} en retard · ${dueToday.length} aujourd'hui`
           )}
         </div>
-        
+
 
         {notice && (
           <div
@@ -979,7 +979,7 @@ export default function App() {
                                   changeCourseStartDate(
                                     course.id,
                                     startDateDrafts[course.id] ??
-                                      course.addedAt,
+                                    course.addedAt,
                                   )
                                 }
                                 className="rounded-lg bg-[#e8f2eb] px-3 py-2 text-sm font-semibold text-[#205e45]"
@@ -1053,13 +1053,33 @@ export default function App() {
                   ),
                 )}
               </div>
-
+              <div className="mb-3 flex flex-wrap gap-4 text-xs">
+                <span className="flex items-center gap-2">
+                  <span className="h-2.5 w-2.5 rounded-full bg-emerald-600" />
+                  Nouveaux cours
+                </span>
+                <span className="flex items-center gap-2">
+                  <span className="h-2.5 w-2.5 rounded-full bg-blue-600" />
+                  Révisions
+                </span>
+              </div>
               <div className="grid grid-cols-7 gap-1 sm:gap-2">
                 {calendarDays.map((day) => {
                   const scheduled = scheduledForDate(items, day);
+
+                  const newCourses = scheduled.filter(
+                    ({ stage }) => stage.k === "J0"
+                  );
+
+                  const revisions = scheduled.filter(
+                    ({ stage }) => stage.k !== "J0"
+                  );
+
                   const remaining = scheduled.filter(
-                    ({ course, stage }) => !course.checks[stage.k],
+                    ({ course, stage }) => !course.checks[stage.k]
                   ).length;
+
+
                   const inMonth = day.slice(0, 7) === visibleMonth;
                   const isSelected = day === selectedDate;
 
@@ -1072,20 +1092,25 @@ export default function App() {
                       }}
                       aria-pressed={isSelected}
                       aria-label={`${fmtLong(day)} · ${remaining} révisions restantes`}
-                      className={`min-h-[66px] rounded-xl border p-1 text-left transition sm:min-h-[82px] sm:p-2 ${
-                        isSelected
+                      className={`min-h-[66px] rounded-xl border p-1 text-left transition sm:min-h-[82px] sm:p-2 ${isSelected
                           ? "border-[#1e6248] bg-[#e8f2eb] ring-1 ring-[#1e6248]"
                           : "border-[#edf0ed] bg-white hover:bg-[#f7f9f7]"
-                      } ${!inMonth ? "opacity-45" : ""}`}
+                        } ${!inMonth ? "opacity-45" : ""}`}
                     >
                       <span
                         className={`text-xs font-semibold sm:text-sm ${day === today ? "text-[#1e6248]" : ""}`}
                       >
                         {new Date(`${day}T12:00:00`).getDate()}
                       </span>
-                      {scheduled.length > 0 && (
-                        <span className="mt-1 block truncate text-[9px] leading-3 text-[#52645a] sm:text-[11px] sm:leading-4">
-                          {remaining}/{scheduled.length} à faire
+                      {newCourses.length > 0 && (
+                        <span className="mt-1 block truncate text-[9px] font-semibold text-emerald-700 sm:text-[11px]">
+                          {newCourses.length} nouveau(x)
+                        </span>
+                      )}
+
+                      {revisions.length > 0 && (
+                        <span className="block truncate text-[9px] font-semibold text-blue-700 sm:text-[11px]">
+                          {revisions.length} révision(s)
                         </span>
                       )}
                       {scheduled.length === 0 && (
@@ -1105,49 +1130,90 @@ export default function App() {
 
             <section className="panel min-w-0 p-4 sm:p-5">
               <div className="mb-4">
-                <h2 className="text-lg font-bold">Révisions programmées</h2>
+                <h2 className="text-lg font-bold">Programme du jour</h2>
                 <p className="text-sm capitalize muted">
                   {fmtLong(selectedDate)}
                 </p>
               </div>
 
-              {selectedDayItems.length === 0 ? (
-                <div className="rounded-xl bg-[#f1f6f1] p-6 text-center">
-                  <CalendarDays className="mx-auto mb-2 text-[#52645a]" />
-                  <b>Aucune révision prévue</b>
-                  <p className="mt-1 text-sm muted">
-                    Les cours commencés apparaîtront ici selon le cycle J0 à
-                    J30.
-                  </p>
-                </div>
-              ) : (
-                <div className="divide-y">
-                  {selectedDayItems.map(({ course, stage }) => (
-                    <label
-                      key={`${course.id}-${stage.k}`}
-                      className="flex cursor-pointer items-center justify-between gap-3 py-3"
-                    >
-                      <span className="min-w-0">
-                        <span
-                          className={`block truncate font-medium ${course.checks[stage.k] ? "text-[#718078] line-through" : ""}`}
-                        >
-                          {course.title}
+              {selectedDayItems.length > 0 && (
+                <div className="space-y-5">
+                  {/* Nouveaux cours */}
+                  {selectedDayItems.some(({ stage }) => stage.k === "J0") && (
+                    <section>
+                      <h3 className="mb-2 font-semibold text-emerald-700">
+                        Nouveaux cours
+                        <span className="ml-2 text-xs">
+                          ({selectedDayItems.filter(({ stage }) => stage.k === "J0").length})
                         </span>
-                        <span className="text-xs muted">
-                          {course.system} · {stage.k}
+                      </h3>
+
+                      {selectedDayItems
+                        .filter(({ stage }) => stage.k === "J0")
+                        .map(({ course, stage }) => (
+                          <label
+                            key={`${course.id}-${stage.k}`}
+                            className="flex cursor-pointer items-center justify-between gap-3 border-b py-3"
+                          >
+                            <span className="min-w-0">
+                              <span className="block truncate font-medium">
+                                {course.title}
+                              </span>
+                              <span className="text-xs muted">{course.system} · J0</span>
+                            </span>
+                            <input
+                              type="checkbox"
+                              className="check"
+                              checked={!!course.checks[stage.k]}
+                              onChange={() => toggle(course.id, stage.k)}
+                            />
+                          </label>
+                        ))}
+                    </section>
+                  )}
+
+
+                  {/* Révisions */}
+                  {selectedDayItems.some(({ stage }) => stage.k !== "J0") && (
+                    <section>
+                      <h3 className="mb-2 font-semibold text-blue-700">
+                        Révisions
+                        <span className="ml-2 text-xs">
+                          ({selectedDayItems.filter(({ stage }) => stage.k !== "J0").length})
                         </span>
-                      </span>
-                      <input
-                        type="checkbox"
-                        className="check"
-                        checked={!!course.checks[stage.k]}
-                        onChange={() => toggle(course.id, stage.k)}
-                        aria-label={`Terminer ${stage.k} · ${course.title}`}
-                      />
-                    </label>
-                  ))}
+                      </h3>
+
+                      {selectedDayItems
+                        .filter(({ stage }) => stage.k !== "J0")
+                        .map(({ course, stage }) => (
+                          <label
+                            key={`${course.id}-${stage.k}`}
+                            className="flex cursor-pointer items-center justify-between gap-3 border-b py-3"
+                          >
+                            <span className="min-w-0">
+                              <span className="block truncate font-medium">
+                                {course.title}
+                              </span>
+                              <span className="text-xs muted">
+                                {course.system} · {stage.k}
+                              </span>
+                            </span>
+                            <input
+                              type="checkbox"
+                              className="check"
+                              checked={!!course.checks[stage.k]}
+                              onChange={() => toggle(course.id, stage.k)}
+                            />
+                          </label>
+                        ))}
+                    </section>
+                  )}
+
                 </div>
               )}
+
+
+              
               {selectedDayItems.length > 0 && (
                 <div className="mt-4 rounded-xl bg-[#f7f9f7] p-3 text-sm">
                   {
@@ -1202,7 +1268,7 @@ export default function App() {
                     Tous les cours ont déjà une date d’étude.
                   </p>
                 )}
-                
+
               </div>
             </section>
           </div>
