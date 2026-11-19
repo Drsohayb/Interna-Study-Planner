@@ -113,11 +113,13 @@ const modules = [
 
 // Custom radar tick: module short name rendered in the module's unique color.
 const radarTick = (props: {
-  x?: number;
-  y?: number;
+  x?: string | number;
+  y?: string | number;
   payload?: { value?: string };
 }) => {
-  const { x = 0, y = 0, payload } = props;
+  const x = Number(props.x ?? 0);
+  const y = Number(props.y ?? 0);
+  const { payload } = props;
   const mod = modules.find((entry) => entry.short === payload?.value);
   return (
     <text
@@ -907,7 +909,7 @@ export default function App() {
         </div>
       </aside>
 
-      <main className="max-w-[1500px] min-w-0 flex-1 p-4 md:p-8">
+      <main className="max-w-375 min-w-0 flex-1 p-4 md:p-8">
         <header className="mb-7 flex flex-wrap items-center justify-between gap-3">
           <div className="min-w-0">
             <div className="text-sm muted">Bonjour — garde le rythme</div>
@@ -1113,7 +1115,7 @@ export default function App() {
               </p>
 
               <div
-                className="mx-auto mt-2 w-full max-w-[460px]"
+                className="mx-auto mt-2 w-full max-w-115"
                 style={{ height: 380 }}
               >
                 <ResponsiveContainer width="100%" height="100%">
@@ -1137,11 +1139,14 @@ export default function App() {
                       animationEasing="ease-out"
                     />
                     <Tooltip
-                      formatter={(
-                        value: number,
-                        _name: string,
-                        item: { payload?: { module?: string } },
-                      ) => [`${value}%`, item?.payload?.module ?? ""]}
+                      formatter={(value: unknown, _name: unknown, item: unknown) => {
+                        const numeric =
+                          typeof value === "number" ? value : Number(value) || 0;
+                        const moduleName = (
+                          item as { payload?: { module?: string } } | undefined
+                        )?.payload?.module;
+                        return [`${numeric}%`, moduleName ?? ""];
+                      }}
                     />
                   </RadarChart>
                 </ResponsiveContainer>
@@ -1263,7 +1268,7 @@ export default function App() {
         {tab === "courses" && (
           <>
             <div className="mb-4 flex flex-wrap gap-2">
-              <div className="relative min-w-[210px] flex-1">
+              <div className="relative min-w-52.5 flex-1">
                 <Search
                   className="absolute left-3 top-3 text-gray-400"
                   size={16}
@@ -1781,7 +1786,7 @@ export default function App() {
                       }}
                       aria-pressed={isSelected}
                       aria-label={`${fmtLong(day)} · ${remaining} révisions restantes`}
-                      className={`min-h-[66px] rounded-xl border p-1 text-left transition sm:min-h-[82px] sm:p-2 ${isSelected
+                      className={`min-h-16.5 rounded-xl border p-1 text-left transition sm:min-h-20.5 sm:p-2 ${isSelected
                           ? "border-[#1e6248] bg-[#e8f2eb] ring-1 ring-[#1e6248]"
                           : "border-[#edf0ed] bg-white hover:bg-[#f7f9f7]"
                         } ${!inMonth ? "opacity-45" : ""} ${editMode && dropDay === day && dragItem
