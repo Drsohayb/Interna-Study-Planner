@@ -61,7 +61,7 @@ const stages = [
   { k: "J3", d: 3 },
   { k: "J7", d: 7 },
   { k: "J15", d: 15 },
-  { k: "J30", d: 30 },
+  { k: "J21", d: 21 },
 ] as const;
 
 // The stages that are actually planned for a course: every stage is active
@@ -634,31 +634,33 @@ const difficultyRank = (course: Course) =>
         ? 2
         : 3;
 
-const normalizeCourse = (entry: Partial<Course>): Course => ({
-  ...entry,
-  addedAt: typeof entry.addedAt === "string" ? entry.addedAt : "",
-  checks:
-    entry.checks && typeof entry.checks === "object" ? entry.checks : {},
-  dateOverrides:
-    entry.dateOverrides && typeof entry.dateOverrides === "object"
-      ? entry.dateOverrides
-      : {},
-  sickOverrides:
-    entry.sickOverrides && typeof entry.sickOverrides === "object"
-      ? entry.sickOverrides
-      : {},
-  stagesEnabled:
-    entry.stagesEnabled && typeof entry.stagesEnabled === "object"
-      ? entry.stagesEnabled
-      : {},
-  difficulty:
-    entry.difficulty === "easy" ||
-    entry.difficulty === "medium" ||
-    entry.difficulty === "hard"
-      ? entry.difficulty
-      : undefined,
-  note: typeof entry.note === "string" ? entry.note : undefined,
-} as Course);
+const normalizeCourse = (entry: Partial<Course>): Course => {
+  // Legacy schedules used J30 as the last stage; migrate old keys to J21 so
+  // existing progress, manual moves, sick-day reports and stage toggles
+  // survive the rename (checks, overrides and stagesEnabled are per-stage).
+  const migrateStages = (record: Record<string, unknown> | undefined) => {
+    if (!record || typeof record !== "object") return {};
+    const copy = { ...record };
+    if ("J30" in copy && !("J21" in copy)) copy.J21 = copy.J30;
+    delete copy.J30;
+    return copy;
+  };
+  return {
+    ...entry,
+    addedAt: typeof entry.addedAt === "string" ? entry.addedAt : "",
+    checks: migrateStages(entry.checks) as Record<string, boolean>,
+    dateOverrides: migrateStages(entry.dateOverrides) as Record<string, string>,
+    sickOverrides: migrateStages(entry.sickOverrides) as Record<string, string>,
+    stagesEnabled: migrateStages(entry.stagesEnabled) as Record<string, boolean>,
+    difficulty:
+      entry.difficulty === "easy" ||
+      entry.difficulty === "medium" ||
+      entry.difficulty === "hard"
+        ? entry.difficulty
+        : undefined,
+    note: typeof entry.note === "string" ? entry.note : undefined,
+  } as Course;
+};
 
 export default function App() {
   const [items, setItems] = useState<Course[]>(() => {
@@ -1146,7 +1148,7 @@ export default function App() {
 
   // Sick-day spreading: move everything scheduled on `dateISO` to later days.
   // - Unchecked J0 (new courses) are moved to the nearest day with no new course.
-  // - Revisions are moved stage by stage (J1 first, then J3, J7, J15, J30),
+  // - Revisions are moved stage by stage (J1 first, then J3, J7, J15, J21),
   //   each one placed strictly BEFORE the effective date of the next stage,
   //   on the least-loaded available day (real spreading, not just +1 day).
   // Only ACTIVE stages participate: a disabled stage never blocks or bounds
@@ -1162,7 +1164,7 @@ export default function App() {
         `Reporter la journée du ${fmt(dateISO)} ?\n\n` +
         "- Les nouveaux cours seront déplacés vers un jour sans nouveau cours.\n" +
         "- Chaque révision sera replacée avant son étape suivante " +
-        "(J1 avant J3, J3 avant J7, J7 avant J15, J15 avant J30).",
+        "(J1 avant J3, J3 avant J7, J7 avant J15, J15 avant J21).",
       )
     ) {
       return;
@@ -1258,11 +1260,11 @@ export default function App() {
     setItems(working);
     setNotice(
       `Journée du ${fmt(dateISO)} reportée : ${movedNew} nouveau(x) cours déplacé(s) vers un jour libre, ` +
-      `${movedRevisions} révision(s) étalée(s) sur les jours suivants en respectant l'ordre J1 → J3 → J7 → J15 → J30.`,
+      `${movedRevisions} révision(s) étalée(s) sur les jours suivants en respectant l'ordre J1 → J3 → J7 → J15 → J21.`,
     );
   };
 
-  // Drag & drop in the calendar edit mode: pin a stage (J0..J30) to a chosen
+  // Drag & drop in the calendar edit mode: pin a stage (J0..J21) to a chosen
   // day by writing a dateOverride for that stage only.
   const handleDropOnDay = (day: string) => {
     if (!dragItem) return;
@@ -1350,7 +1352,7 @@ export default function App() {
   };
 
   const clearSickOverrides = () => {
-    if (!window.confirm("Effacer tous les reports de journées malades ?\n\nLes révisions replacées par les boutons « Je suis malade » reviendront à leur date calculée (J0 → J30). Les déplacements manuels resteront.")) {
+    if (!window.confirm("Effacer tous les reports de journées malades ?\n\nLes révisions replacées par les boutons « Je suis malade » reviendront à leur date calculée (J0 → J21). Les déplacements manuels resteront.")) {
       return;
     }
     setItems((current) =>
