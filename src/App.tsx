@@ -46,6 +46,8 @@ type Course = {
   // Moves created by the sick-day spreading (kept separate so "Effacer les
   // déplacements" only removes manual edits, not sick-day reports).
   sickOverrides?: Record<string, string>;
+  // Per-course cycle customization: any J-stage except J0 can be disabled.
+  stagesEnabled?: Record<string, boolean>;
   difficulty?: "easy" | "medium" | "hard";
   note?: string;
   custom?: boolean;
@@ -61,6 +63,12 @@ const stages = [
   { k: "J15", d: 15 },
   { k: "J30", d: 30 },
 ] as const;
+
+// The stages that are actually planned for a course: every stage is active
+// unless explicitly disabled via stagesEnabled (J0 can never be disabled —
+// it marks the course as started).
+const activeStages = (course: Course) =>
+  stages.filter((stage) => course.stagesEnabled?.[stage.k] !== false);
 
 const difficultyMeta: Record<
   Difficulty,
@@ -573,6 +581,8 @@ const stageDate = (
   return date;
 };
 
+// A stage appears on the calendar only if it is active for that course
+// (disabled stages are fully excluded from planning).
 const scheduledForDate = (
   courses: Course[],
   date: string,
@@ -580,9 +590,9 @@ const scheduledForDate = (
 ) =>
   courses.flatMap((course) =>
     course.addedAt
-      ? stages
-        .filter((stage) => stageDate(course, stage, isDayOff) === date)
-        .map((stage) => ({ course, stage }))
+      ? activeStages(course)
+          .filter((stage) => stageDate(course, stage, isDayOff) === date)
+          .map((stage) => ({ course, stage }))
       : [],
   );
 
@@ -599,16 +609,17 @@ type MoveRecord = {
 const moduleOf = (course: Course) =>
   modules.find((mod) => mod.match(course.sourceSection));
 
+// Progress only counts the stages that are active for this course.
 const progressCount = (course: Course) =>
-  stages.filter((stage) => course.checks[stage.k]).length;
+  activeStages(course).filter((stage) => course.checks[stage.k]).length;
 
-// Earliest unchecked stage date; unstarted courses sort last.
+// Earliest unchecked ACTIVE stage date; unstarted courses sort last.
 const nextDueDate = (
   course: Course,
   isDayOff: (iso: string) => boolean = () => false,
 ): string => {
   if (!course.addedAt) return "9999-12-31";
-  const pending = stages
+  const pending = activeStages(course)
     .filter((stage) => !course.checks[stage.k])
     .map((stage) => stageDate(course, stage, isDayOff));
   return pending.length ? pending.sort()[0] : "9999-12-31";
@@ -636,6 +647,10 @@ const normalizeCourse = (entry: Partial<Course>): Course => ({
     entry.sickOverrides && typeof entry.sickOverrides === "object"
       ? entry.sickOverrides
       : {},
+  stagesEnabled:
+    entry.stagesEnabled && typeof entry.stagesEnabled === "object"
+      ? entry.stagesEnabled
+      : {},
   difficulty:
     entry.difficulty === "easy" ||
     entry.difficulty === "medium" ||
@@ -644,7 +659,6 @@ const normalizeCourse = (entry: Partial<Course>): Course => ({
       : undefined,
   note: typeof entry.note === "string" ? entry.note : undefined,
 } as Course);
-
 
 export default function App() {
   const [items, setItems] = useState<Course[]>(() => {
@@ -777,17 +791,18 @@ export default function App() {
   const today = todayISO();
   const unstarted = items.filter((course) => !course.addedAt);
 
+  // Only ACTIVE stages generate work (disabled stages are fully ignored).
   const outstanding = items.flatMap((course) =>
     course.addedAt
-      ? stages
-        .map((stage) => ({
-          course,
-          stage,
-          date: stageDate(course, stage, isDayOff),
-        }))
-        .filter(
-          (entry) => entry.date <= today && !course.checks[entry.stage.k],
-        )
+      ? activeStages(course)
+          .map((stage) => ({
+            course,
+            stage,
+            date: stageDate(course, stage, isDayOff),
+          }))
+          .filter(
+            (entry) => entry.date <= today && !course.checks[entry.stage.k],
+          )
       : [],
   );
 
@@ -797,15 +812,19 @@ export default function App() {
 
   const totalCourses = items.length;
 
-  const totalRevisions = items.length * (stages.length - 1);
+  // Total / completed revision counts respect each course's active stages.
+  const totalRevisions = items.reduce(
+    (sum, course) => sum + Math.max(0, activeStages(course).length - 1),
+    0,
+  );
 
   const completedRevisions = items.reduce(
     (count, course) =>
       count +
-      stages
-        .filter((stage) => stage.d > 0 && course.checks[stage.k])
-        .length,
-    0
+      activeStages(course).filter(
+        (stage) => stage.d > 0 && course.checks[stage.k],
+      ).length,
+    0,
   );
 
   // ---- Statistics per module (for the radar + module cards) ----
@@ -991,6 +1010,60 @@ export default function App() {
     );
   };
 
+  // Enable / disable a revision stage for one course (J0 stays mandatory).
+  // Disabling removes the stage from planning AND clears its check plus its
+  // manual / sick-day moves, so nothing stale survives.
+  const toggleStage = (id: string, stageKey: string) => {
+    if (stageKey === "J0") return; // J0 = course start, always required
+    setItems((current) =>
+      current.map((course) => {
+        if (course.id !== id) return course;
+        const enabled = course.stagesEnabled?.[stageKey] !== false;
+        const stagesEnabled = { ...course.stagesEnabled, [stageKey]: !enabled };
+        const checks = { ...course.checks };
+        const dateOverrides = { ...course.dateOverrides };
+        const sickOverrides = { ...course.sickOverrides };
+        if (enabled) {
+          delete checks[stageKey];
+          delete dateOverrides[stageKey];
+          delete sickOverrides[stageKey];
+        }
+        return { ...course, stagesEnabled, checks, dateOverrides, sickOverrides };
+      }),
+    );
+  };
+
+  // Toggle one stage for ALL courses at once (Home page "Cycle de répétition"
+  // boxes). If every course has the stage enabled, it is disabled everywhere;
+  // otherwise it is enabled everywhere. The per-course chips in "Mes cours"
+  // can still fine-tune individual courses afterwards.
+  const toggleStageGlobally = (stageKey: string) => {
+    if (stageKey === "J0") return; // J0 = course start, always required
+    const allEnabled = items.every(
+      (course) => course.stagesEnabled?.[stageKey] !== false,
+    );
+    const enable = !allEnabled;
+    setItems((current) =>
+      current.map((course) => {
+        const stagesEnabled = { ...course.stagesEnabled, [stageKey]: enable };
+        const checks = { ...course.checks };
+        const dateOverrides = { ...course.dateOverrides };
+        const sickOverrides = { ...course.sickOverrides };
+        if (!enable) {
+          delete checks[stageKey];
+          delete dateOverrides[stageKey];
+          delete sickOverrides[stageKey];
+        }
+        return { ...course, stagesEnabled, checks, dateOverrides, sickOverrides };
+      }),
+    );
+    setNotice(
+      enable
+        ? `${stageKey} activé pour tous les cours.`
+        : `${stageKey} désactivé pour tous les cours — les cases cochées et les déplacements de cette étape ont été effacés.`,
+    );
+  };
+
   const setDifficulty = (id: string, level?: Difficulty) => {
     setItems((current) =>
       current.map((course) =>
@@ -1076,6 +1149,8 @@ export default function App() {
   // - Revisions are moved stage by stage (J1 first, then J3, J7, J15, J30),
   //   each one placed strictly BEFORE the effective date of the next stage,
   //   on the least-loaded available day (real spreading, not just +1 day).
+  // Only ACTIVE stages participate: a disabled stage never blocks or bounds
+  // the spreading of the others.
   const spreadSickDay = (dateISO: string) => {
     const dayProgram = scheduledForDate(items, dateISO, isDayOff);
     if (dayProgram.length === 0) {
@@ -1120,7 +1195,7 @@ export default function App() {
       movedNew += 1;
     }
 
-    // 2) Revisions, in stage order, each kept before the NEXT stage's date.
+    // 2) Revisions, in stage order, each kept before the NEXT ACTIVE stage's date.
     for (const stage of stages.filter((entry) => entry.d > 0)) {
       const entries = dayProgram.filter(
         ({ course, stage: entryStage }) =>
@@ -1129,7 +1204,7 @@ export default function App() {
       for (const { course } of entries) {
         const target = working.find((entry) => entry.id === course.id);
         if (!target) continue;
-        const nextStage = stages.find((entry) => entry.d > stage.d);
+        const nextStage = activeStages(target).find((entry) => entry.d > stage.d);
         const nextDate = nextStage ? stageDate(target, nextStage, isDayOff) : null;
         const upperBound = nextDate ?? plus(dateISO, 45);
         const scanLimit = plus(dateISO, 45);
@@ -1213,8 +1288,10 @@ export default function App() {
     );
     if (course && stage) {
       let warning = "";
-      const next = stages.find((entry) => entry.d > stage.d);
-      const prev = [...stages].reverse().find((entry) => entry.d < stage.d);
+      const next = activeStages(course).find((entry) => entry.d > stage.d);
+      const prev = [...activeStages(course)]
+        .reverse()
+        .find((entry) => entry.d < stage.d);
       const effectiveDate = (stageKey: string, offset: number) =>
         course.dateOverrides?.[stageKey] ??
         course.sickOverrides?.[stageKey] ??
@@ -1795,7 +1872,7 @@ export default function App() {
 
 
 
-        
+
         {notice && (
           <div
             role="status"
@@ -1813,31 +1890,31 @@ export default function App() {
 
         {tab === "today" && (
           <>
-<div className="mb-5 grid grid-cols-2 gap-3 xl:grid-cols-4">
-          {stat(
-            "Cours dans ta bibliothèque",
-            String(items.length),
-            `${startedCourses} commencés`
-          )}
+            <div className="mb-5 grid grid-cols-2 gap-3 xl:grid-cols-4">
+              {stat(
+                "Cours dans ta bibliothèque",
+                String(items.length),
+                `${startedCourses} commencés`
+              )}
 
-          {stat(
-            "Cours commencés",
-            `${totalCourses ? Math.round((startedCourses / totalCourses) * 100) : 0}% `,
-            `${startedCourses} / ${totalCourses} du programme`
-          )}
+              {stat(
+                "Cours commencés",
+                `${totalCourses ? Math.round((startedCourses / totalCourses) * 100) : 0}% `,
+                `${startedCourses} / ${totalCourses} du programme`
+              )}
 
-          {stat(
-            "Révisions terminées",
-            `${totalRevisions ? Math.round((completedRevisions / totalRevisions) * 100) : 0}%`,
-            `${completedRevisions} / ${totalRevisions} des révisions`
-          )}
+              {stat(
+                "Révisions terminées",
+                `${totalRevisions ? Math.round((completedRevisions / totalRevisions) * 100) : 0}%`,
+                `${completedRevisions} / ${totalRevisions} des révisions`
+              )}
 
-          {stat(
-            "Révisions restantes",
-            String(outstanding.length),
-            `${outstanding.filter((entry) => entry.date < today).length} en retard · ${outstanding.filter((entry) => entry.date === today).length} aujourd'hui`
-          )}
-        </div>
+              {stat(
+                "Révisions restantes",
+                String(outstanding.length),
+                `${outstanding.filter((entry) => entry.date < today).length} en retard · ${outstanding.filter((entry) => entry.date === today).length} aujourd'hui`
+              )}
+            </div>
             <section className="panel mb-5 p-5">
               <div className="flex flex-wrap items-start justify-between gap-3">
                 <div>
@@ -2013,95 +2090,150 @@ export default function App() {
             </section>
 
             <section className="panel p-4 sm:p-5">
-                        <h2 className="mb-3 text-lg font-bold">Détail par module</h2>
-                          <div className="grid gap-3 sm:grid-cols-2">
-                            {moduleStats.map((mod) => (
-                              <div className="panel p-4" key={mod.key}>
-                                <div className="flex items-center justify-between gap-2">
-                                  <b className="flex min-w-0 items-center gap-2">
-                                    <span
-                                      className="inline-block h-3 w-3 shrink-0 rounded-full"
-                                      style={{ background: mod.color }}
-                                    />
-                                    <span className="truncate">{mod.label}</span>
-                                  </b>
-                                  <span className="text-lg font-bold" style={{ color: mod.color }}>
-                                    {mod.mastery}%
-                                  </span>
-                                </div>
-            
-                                <div
-                                  className="mt-2 h-2 overflow-hidden rounded-full bg-[#e7eee8]"
-                                  role="progressbar"
-                                  aria-valuenow={mod.mastery}
-                                  aria-valuemin={0}
-                                  aria-valuemax={100}
-                                  aria-label={`Avancement ${mod.label}`}
-                                >
-                                  <div
-                                    className="h-full rounded-full transition-all"
-                                    style={{
-                                      width: `${mod.mastery}%`,
-                                      background: mod.color,
-                                    }}
-                                  />
-                                </div>
-            
-                                <div className="mt-2 text-xs muted">
-                                  {mod.studied} / {mod.courses.length} cours étudiés (J0
-                                  validé)
-                                </div>
-            
-                                <div className="mt-2 flex flex-wrap gap-2 text-[11px]">
-                                  {(Object.keys(difficultyMeta) as Difficulty[]).map(
-                                    (level) => (
-                                      <span
-                                        key={level}
-                                        className="flex items-center gap-1 rounded-full px-2 py-0.5 font-semibold"
-                                        style={{
-                                          background: difficultyMeta[level].bg,
-                                          color: difficultyMeta[level].text,
-                                        }}
-                                      >
-                                        <span
-                                          className="inline-block h-1.5 w-1.5 rounded-full"
-                                          style={{
-                                            background: difficultyMeta[level].color,
-                                          }}
-                                        />
-                                        {mod.counts[level]} {difficultyMeta[level].label.toLowerCase()}
-                                        {mod.counts[level] > 1 ? "s" : ""}
-                                      </span>
-                                    ),
-                                  )}
-                                </div>
-                              </div>
-                            ))}
-                          </div>
-            
-                          <p className="mt-3 text-xs muted">
-                            Astuce : marque chaque cours comme Facile / Moyen / Difficile
-                            dans « Mes cours » pour repérer en un coup d'œil ce qui te
-                            résiste. Les notes personnelles t'aident à mémoriser ce que tu
-                            as déjà su retenir.
-                          </p>
-                        </section>
+              <h2 className="mb-3 text-lg font-bold">Détail par module</h2>
+              <div className="grid gap-3 sm:grid-cols-2">
+                {moduleStats.map((mod) => (
+                  <div className="panel p-4" key={mod.key}>
+                    <div className="flex items-center justify-between gap-2">
+                      <b className="flex min-w-0 items-center gap-2">
+                        <span
+                          className="inline-block h-3 w-3 shrink-0 rounded-full"
+                          style={{ background: mod.color }}
+                        />
+                        <span className="truncate">{mod.label}</span>
+                      </b>
+                      <span className="text-lg font-bold" style={{ color: mod.color }}>
+                        {mod.mastery}%
+                      </span>
+                    </div>
 
-            <section className="panel p-5">
-              <h2 className="mb-3 font-bold">Cycle de répétition</h2>
-              <div className="grid grid-cols-3 gap-2 md:grid-cols-6">
-                {stages.map((stage) => (
-                  <div className="day" key={stage.k}>
-                    <div className="font-bold text-[#245c43]">{stage.k}</div>
-                    <div className="text-xs muted">
-                      {stage.d === 0 ? "Le jour même" : `+${stage.d} jours`}
+                    <div
+                      className="mt-2 h-2 overflow-hidden rounded-full bg-[#e7eee8]"
+                      role="progressbar"
+                      aria-valuenow={mod.mastery}
+                      aria-valuemin={0}
+                      aria-valuemax={100}
+                      aria-label={`Avancement ${mod.label}`}
+                    >
+                      <div
+                        className="h-full rounded-full transition-all"
+                        style={{
+                          width: `${mod.mastery}%`,
+                          background: mod.color,
+                        }}
+                      />
+                    </div>
+
+                    <div className="mt-2 text-xs muted">
+                      {mod.studied} / {mod.courses.length} cours étudiés (J0
+                      validé)
+                    </div>
+
+                    <div className="mt-2 flex flex-wrap gap-2 text-[11px]">
+                      {(Object.keys(difficultyMeta) as Difficulty[]).map(
+                        (level) => (
+                          <span
+                            key={level}
+                            className="flex items-center gap-1 rounded-full px-2 py-0.5 font-semibold"
+                            style={{
+                              background: difficultyMeta[level].bg,
+                              color: difficultyMeta[level].text,
+                            }}
+                          >
+                            <span
+                              className="inline-block h-1.5 w-1.5 rounded-full"
+                              style={{
+                                background: difficultyMeta[level].color,
+                              }}
+                            />
+                            {mod.counts[level]} {difficultyMeta[level].label.toLowerCase()}
+                            {mod.counts[level] > 1 ? "s" : ""}
+                          </span>
+                        ),
+                      )}
                     </div>
                   </div>
                 ))}
               </div>
+
+              <p className="mt-3 text-xs muted">
+                Astuce : marque chaque cours comme Facile / Moyen / Difficile
+                dans « Mes cours » pour repérer en un coup d'œil ce qui te
+                résiste. Les notes personnelles t'aident à mémoriser ce que tu
+                as déjà su retenir.
+              </p>
+            </section>
+
+            <section className="panel p-5">
+              <div className="flex flex-wrap items-center justify-between gap-2">
+                <h2 className="mb-3 font-bold">Cycle de répétition</h2>
+                <span className="mb-3 text-xs muted">
+                  Clique une étape pour l'activer / désactiver pour tous les cours
+                </span>
+              </div>
+              <div className="grid grid-cols-3 gap-2 md:grid-cols-6">
+                {stages.map((stage) => {
+                  const enabledCount = items.filter(
+                    (course) => course.stagesEnabled?.[stage.k] !== false,
+                  ).length;
+                  const allEnabled =
+                    items.length > 0 && enabledCount === items.length;
+                  const noneEnabled = enabledCount === 0;
+                  const isJ0 = stage.k === "J0";
+                  return (
+                    <button
+                      key={stage.k}
+                      type="button"
+                      disabled={isJ0}
+                      onClick={() => toggleStageGlobally(stage.k)}
+                      aria-pressed={allEnabled}
+                      title={
+                        isJ0
+                          ? "J0 marque le début de chaque cours (obligatoire)"
+                          : allEnabled
+                            ? `Désactiver ${stage.k} pour TOUS les cours`
+                            : `Activer ${stage.k} pour TOUS les cours`
+                      }
+                      className={`day cursor-pointer text-left transition ${
+                        allEnabled
+                          ? "ring-1 ring-[#1e6248]"
+                          : noneEnabled
+                            ? "opacity-50"
+                            : "ring-1 ring-[#d97706]"
+                      } ${isJ0 ? "cursor-default" : "hover:bg-[#e8f2eb]"}`}
+                    >
+                      <div
+                        className={`font-bold ${
+                          allEnabled
+                            ? "text-[#245c43]"
+                            : "text-[#9aa8a0] line-through"
+                        }`}
+                      >
+                        {stage.k}
+                        {!allEnabled && !noneEnabled && (
+                          <span className="ml-1 text-[9px] text-[#d97706]">
+                            ~{enabledCount}
+                          </span>
+                        )}
+                      </div>
+                      <div className="text-xs muted">
+                        {stage.d === 0 ? "Le jour même" : `+${stage.d} jours`}
+                      </div>
+                      {!isJ0 && items.length > 0 && (
+                        <div className="mt-0.5 text-[9px] font-semibold text-[#52645a]">
+                          {enabledCount}/{items.length} cours
+                        </div>
+                      )}
+                    </button>
+                  );
+                })}
+              </div>
               <p className="mt-3 text-xs muted">
                 Chaque date est calculée à partir du jour où tu commences le
-                cours. Tu peux cocher les étapes en avance ou en retard.
+                cours. Clique une étape pour l'activer ou la désactiver pour
+                tous les cours d'un coup (anneau orange = certains cours
+                seulement) — les puces « Étapes » dans « Mes cours » permettent
+                ensuite d'ajuster cours par cours.
               </p>
             </section>
           </>
@@ -2364,6 +2496,41 @@ export default function App() {
                         </details>
                       </div>
 
+                      {/* Cycle stages: enable / disable per course (J0 mandatory) */}
+                      <div className="mt-3 flex flex-wrap items-center gap-1.5">
+                        <span className="mr-1 text-xs muted">Étapes :</span>
+                        {stages.map((stage) => {
+                          const enabled = course.stagesEnabled?.[stage.k] !== false;
+                          const isJ0 = stage.k === "J0";
+                          return (
+                            <button
+                              key={stage.k}
+                              type="button"
+                              disabled={isJ0}
+                              onClick={() => toggleStage(course.id, stage.k)}
+                              aria-pressed={enabled}
+                              title={
+                                isJ0
+                                  ? "J0 marque le début du cours (obligatoire)"
+                                  : enabled
+                                    ? `Désactiver ${stage.k} (+${stage.d} jours)`
+                                    : `Réactiver ${stage.k} (+${stage.d} jours)`
+                              }
+                              className={`rounded-full border px-2.5 py-0.5 text-[11px] font-bold transition ${
+                                enabled
+                                  ? "border-[#1e6248] bg-[#e8f2eb] text-[#205e45]"
+                                  : "border-[#d6ddd8] bg-[#f3f4f6] text-[#9aa8a0] line-through"
+                              } ${isJ0 ? "cursor-default" : "hover:border-[#1e6248]"}`}
+                            >
+                              {stage.k}
+                            </button>
+                          );
+                        })}
+                        <span className="ml-1 text-[10px] muted">
+                          {activeStages(course).length} / {stages.length} actives
+                        </span>
+                      </div>
+
                       {!course.addedAt ? (
                         <div className="mt-3 flex flex-wrap items-end gap-3">
                           <label className="grid gap-1 text-xs muted">
@@ -2400,6 +2567,8 @@ export default function App() {
                         <>
                           <div className="mt-3 grid grid-cols-3 gap-2 sm:grid-cols-6">
                             {stages.map((stage) => {
+                              const stageEnabled =
+                                course.stagesEnabled?.[stage.k] !== false;
                               const dueDate = stageDate(course, stage, isDayOff);
                               const isDone = !!course.checks[stage.k];
                               const isOverridden =
@@ -2409,29 +2578,32 @@ export default function App() {
                               return (
                                 <label
                                   key={stage.k}
-                                  className={`day cursor-pointer ${isDone ? "done" : ""}`}
+                                  className={`day cursor-pointer ${isDone ? "done" : ""} ${!stageEnabled ? "opacity-40" : ""}`}
                                   title={
-                                    isOverridden
-                                      ? `Date déplacée (report / déplacement manuel) · initialement ${fmt(plus(course.addedAt, stage.d))}`
-                                      : undefined
+                                    !stageEnabled
+                                      ? `${stage.k} désactivé pour ce cours — clique sur la puce « Étapes » pour le réactiver`
+                                      : isOverridden
+                                        ? `Date déplacée (report / déplacement manuel) · initialement ${fmt(plus(course.addedAt, stage.d))}`
+                                        : undefined
                                   }
                                 >
                                   <input
                                     className="check"
                                     type="checkbox"
                                     checked={isDone}
+                                    disabled={!stageEnabled}
                                     onChange={() => toggle(course.id, stage.k)}
                                   />
                                   <div className="mt-1 text-sm font-bold">
                                     {stage.k}
-                                    {isOverridden && !isDone && (
+                                    {isOverridden && !isDone && stageEnabled && (
                                       <span className="ml-1 text-[9px] text-rose-500">
                                         ↷
                                       </span>
                                     )}
                                   </div>
                                   <div className="text-[10px] muted">
-                                    {fmt(dueDate)}
+                                    {stageEnabled ? fmt(dueDate) : "désactivé"}
                                   </div>
                                 </label>
                               );
@@ -2963,7 +3135,6 @@ export default function App() {
             </section>
           </div>
         )}
-
         
 
         {tab === "revise" && (
@@ -3126,10 +3297,8 @@ export default function App() {
                                         : "bg-[#bbf7d0] text-[#166534]"
                                       }`}
                                   >
-                                    {stats.last === "hard" ? "difficile" : "facile"}
-                                  </span>
-                                  <span className="rounded-full bg-[#e2e8f0] px-2 py-0.5 font-semibold text-[#475569]">
-                                    {stats.attempts}× · moy {Math.round(stats.avgTime)}s
+                                    {stats.last === "hard" ? "difficile" : "facile"}{" "}
+                                    · {stats.attempts}× · moy {Math.round(stats.avgTime)}s
                                   </span>
                                   {quiz.recalled[section.id] && (
                                     <span className="rounded-full bg-[#dbeafe] px-2 py-0.5 font-semibold text-[#1d4ed8]">
